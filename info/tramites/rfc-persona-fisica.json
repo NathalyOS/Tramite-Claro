@@ -1,0 +1,158 @@
+{
+  "id": "rfc-persona-fisica",
+  "nombre": "Registro Federal de Contribuyentes (RFC) Persona Física",
+  "categoria": "Fiscal",
+  "duracion_estimada": "30 minutos a 1 día",
+  "dificultad": "baja",
+  "costo_aproximado": "Gratuito",
+  "descripcion_simple": "El RFC es tu clave de impuestos. Son 13 letras y números que te identifican con el gobierno para pagar impuestos. Lo necesitas para trabajar, abrir cuentas de banco, hacer facturas, y para muchos trámites oficiales.",
+  "pasos": [
+    {
+      "numero": 1,
+      "titulo": "Decidir si lo haces en línea o en persona",
+      "descripcion": "Tienes dos opciones para sacar tu RFC: puedes hacerlo tú mismo por internet (es más rápido, tarda como 30 minutos) o puedes ir en persona a una oficina del SAT (tarda más tiempo pero te ayudan si tienes dudas). La opción de internet es la mejor si tienes todos tus documentos en digital (escaneados) y si sabes usar la computadora bien. La opción de ir en persona es mejor si prefieres que alguien te ayude o si no tienes escáner para tus documentos.",
+      "tiempo_estimado": "5 minutos para decidir",
+      "consejos": [
+        "Si eres joven y sabes usar la computadora, hazlo en línea, es mucho más rápido",
+        "Si tienes más de 50 años o no te sientes cómodo con internet, ve en persona",
+        "Para hacerlo en línea necesitas escanear tus documentos",
+        "Para ir en persona necesitas sacar cita primero en la página del SAT",
+        "El trámite en línea está disponible las 24 horas, todos los días"
+      ],
+      "documentos_requeridos": []
+    },
+    {
+      "numero": 2,
+      "titulo": "Preparar tus documentos",
+      "descripcion": "Necesitas tener listos tres documentos importantes. Primero, tu acta de nacimiento (debe ser certificada y reciente, no mayor a 5 años). Segundo, una identificación oficial con tu foto (puede ser tu INE, pasaporte, o cédula profesional). Tercero, un comprobante de donde vives (recibo de luz, agua, teléfono o predial, que no tenga más de 3 meses). Si vas a hacer el trámite en línea, necesitas escanear estos tres documentos y guardarlos en tu computadora en formato PDF. Si vas a ir en persona, llevas los originales y copias.",
+      "tiempo_estimado": "1 hora para escanear todo",
+      "consejos": [
+        "Los escaneos deben verse muy claros, no borrosos",
+        "Escanea en color si puedes, es mejor",
+        "Si no tienes escáner, puedes tomar fotos con tu celular pero que se vean MUY claras",
+        "Tu acta debe ser del formato nuevo (después del año 2000 es mejor)",
+        "Si tu comprobante de domicilio no está a tu nombre, necesitas una carta de quien vive contigo",
+        "Guarda los archivos con nombres claros: 'acta.pdf', 'ine.pdf', 'comprobante.pdf'"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Acta de nacimiento certificada",
+          "tipo": "original",
+          "descripcion": "Tu acta de nacimiento original del Registro Civil. Debe ser certificada (con sellos oficiales) y no debe tener más de 5 años de haber sido expedida. Si la tuya es muy vieja, saca una nueva, es rápida y barata.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "No mayor a 5 años",
+          "ejemplos": ["Acta de nacimiento certificada del Registro Civil"]
+        },
+        {
+          "nombre": "Identificación oficial con fotografía",
+          "tipo": "original",
+          "descripcion": "Tu credencial oficial que tenga tu foto y tu firma. La más común es la INE (credencial para votar). También puede ser tu pasaporte o cédula profesional. Debe estar vigente (no vencida).",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Vigente",
+          "ejemplos": ["INE, Pasaporte mexicano, Cédula profesional"]
+        },
+        {
+          "nombre": "Comprobante de domicilio reciente",
+          "tipo": "original",
+          "descripcion": "Un papel que demuestre dónde vives. Puede ser recibo de luz (CFE), agua, teléfono fijo, o predial. Debe tener tu nombre completo y tu dirección. Debe ser de hace máximo 3 meses. Si vives con tus papás y el recibo está a nombre de ellos, necesitas que ellos escriban una carta diciendo que vives ahí.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "No mayor a 3 meses",
+          "ejemplos": ["Recibo de CFE, agua, teléfono, predial, contrato de renta"]
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Registrarte en la página del SAT",
+      "descripcion": "Si vas a hacer el trámite en línea, primero debes entrar a la página oficial del SAT (www.sat.gob.mx). Buscas la opción que dice 'Inscripción al RFC' o 'Obtén tu RFC'. Te va a pedir que llenes un formulario con todos tus datos personales: tu nombre completo (como aparece en tu acta de nacimiento), tu fecha de nacimiento, dónde naciste, tu dirección actual, tu teléfono, tu correo electrónico, tu ocupación (a qué te dedicas). Es muy importante que escribas todo exactamente como está en tus documentos oficiales. La página te va a pedir que subas los archivos escaneados de tus documentos. Al final, te genera tu RFC automáticamente.",
+      "tiempo_estimado": "30 minutos",
+      "consejos": [
+        "Escribe tu nombre EXACTAMENTE como está en tu acta de nacimiento, con los dos apellidos completos",
+        "Si tienes nombres compuestos (como María Elena), escríbelos completos",
+        "Usa un correo electrónico que revises seguido, ahí te van a mandar tu constancia",
+        "Si la página te dice que tu RFC ya existe, es porque ya lo habías sacado antes",
+        "Anota tu contraseña en algún lugar seguro, la vas a necesitar para entrar después",
+        "Al final imprime tu 'Constancia de situación fiscal', es tu comprobante"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Documentos escaneados",
+          "tipo": "digital",
+          "descripcion": "Los tres documentos que preparaste en el paso anterior, pero en formato digital (PDF o imagen). Deben verse claros y completos.",
+          "obligatorio": true,
+          "cantidad": 3,
+          "vigencia": "N/A",
+          "ejemplos": ["Acta.pdf, INE.pdf, Comprobante.pdf"]
+        },
+        {
+          "nombre": "Correo electrónico activo",
+          "tipo": "digital",
+          "descripcion": "Un correo electrónico que uses y que puedas revisar. Ahí te van a mandar tu constancia de RFC.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Activo",
+          "ejemplos": ["Gmail, Hotmail, Yahoo, Outlook"]
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Obtener tu constancia de situación fiscal",
+      "descripcion": "Cuando terminas el registro, la página del SAT te muestra tu RFC (las 13 letras y números). También puedes descargar tu 'Constancia de Situación Fiscal' que es un documento en PDF que dice toda tu información fiscal: tu RFC, tu nombre completo, tu domicilio fiscal, y tu régimen (cómo pagas impuestos). Este documento lo puedes descargar todas las veces que quieras desde la página del SAT. Te lo van a pedir en muchos lugares: trabajos, bancos, trámites. Es importante que lo descargues e imprimas varias copias. El documento tiene un código QR que sirve para verificar que es oficial.",
+      "tiempo_estimado": "10 minutos",
+      "consejos": [
+        "Descarga el PDF e imprímelo en varias copias",
+        "Guarda el archivo PDF en tu computadora, celular y en la nube (Drive, Dropbox)",
+        "Toma una foto de tu constancia y guárdala en tu celular para tenerla siempre",
+        "Si pierdes tu constancia, puedes descargarla de nuevo las veces que quieras",
+        "El código QR sirve para que otras personas verifiquen que tu RFC es real",
+        "Puedes actualizar tu constancia cuando cambies de dirección o de trabajo"
+      ],
+      "documentos_requeridos": []
+    },
+    {
+      "numero": 5,
+      "titulo": "Guardar tu RFC y contraseña",
+      "descripcion": "Tu RFC es como tu número de seguro social, lo vas a usar toda tu vida para todo lo relacionado con dinero y gobierno. Debes memorizar tu RFC o al menos saber dónde lo tienes guardado. También es muy importante que guardes tu contraseña del SAT en un lugar seguro. Con tu RFC y contraseña puedes entrar a tu portal del SAT para ver tus declaraciones de impuestos, actualizar tus datos, descargar tu constancia, y hacer muchos trámites. Nunca compartas tu contraseña con nadie, es información privada. Si olvidas tu contraseña, la puedes recuperar con tu correo electrónico.",
+      "tiempo_estimado": "5 minutos",
+      "consejos": [
+        "Anota tu RFC en tu libreta de teléfonos o en tu cartera",
+        "Guarda tu contraseña en un lugar seguro, no en un papel suelto",
+        "Puedes usar aplicaciones como Contraseñas de iPhone o LastPass para guardar tu contraseña",
+        "No uses tu fecha de nacimiento o nombre como contraseña, eso no es seguro",
+        "Cambia tu contraseña cada 6 meses para más seguridad",
+        "Si alguien te pide tu contraseña, no se la des, ni siquiera si dicen ser del SAT"
+      ],
+      "documentos_requeridos": []
+    }
+  ],
+  "checklist_completo": {
+    "documentos_obligatorios": [
+      "Acta de nacimiento certificada (no mayor a 5 años)",
+      "Identificación oficial vigente con fotografía (INE, Pasaporte, Cédula)",
+      "Comprobante de domicilio reciente (no mayor a 3 meses)",
+      "Correo electrónico activo",
+      "Documentos escaneados en PDF (si lo haces en línea)"
+    ],
+    "documentos_opcionales": [
+      "Carta de domicilio (si el comprobante no está a tu nombre)",
+      "Acta de matrimonio (si cambiaste de apellido)",
+      "Comprobante de estudios (para algunos casos)"
+    ],
+    "recomendaciones_generales": [
+      "El trámite es completamente GRATUITO, no pagues a nadie por hacerlo",
+      "Puedes hacerlo en línea las 24 horas, desde tu casa",
+      "Tu RFC no tiene vencimiento, es para toda la vida",
+      "Necesitas RFC para trabajar de manera formal en cualquier empresa",
+      "También lo necesitas para abrir cuentas de banco, comprar carro, sacar créditos",
+      "Si empiezas a trabajar por tu cuenta, debes inscribirte en un 'régimen fiscal'",
+      "Puedes actualizar tu información fiscal en línea cuando quieras",
+      "Tu constancia de situación fiscal la puedes descargar gratis ilimitadas veces",
+      "Guarda tu RFC junto con tus documentos importantes",
+      "Si tienes dudas, puedes llamar al SAT al 55-627-22-728 o ir a una oficina con cita"
+    ]
+  }
+}

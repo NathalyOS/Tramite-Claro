@@ -1,0 +1,182 @@
+{
+  "id": "testamento",
+  "nombre": "Testamento Público Abierto",
+  "categoria": "Notarial",
+  "duracion_estimada": "1-2 días",
+  "dificultad": "media",
+  "costo_aproximado": "$1,500 - $5,000 MXN (varía por estado)",
+  "descripcion_simple": "Un testamento es un papel oficial donde escribes a quién le quieres dejar tus cosas cuando ya no estés. Es como decirle al gobierno: 'Cuando yo muera, quiero que mis cosas se las den a estas personas que yo escojo'.",
+  "pasos": [
+    {
+      "numero": 1,
+      "titulo": "Decidir qué y a quién heredar",
+      "descripcion": "Antes de ir con el notario, siéntate con calma y piensa en todo lo que tienes: tu casa, terrenos, dinero en el banco, carros, joyas, muebles importantes, negocios. Haz una lista de todo. Luego piensa a quién le quieres dejar cada cosa. Normalmente la gente deja sus cosas a su esposa o esposo, sus hijos, sus papás, hermanos, o amigos muy cercanos. Puedes decidir dar todo a una sola persona o dividirlo entre varias. Por ejemplo: 'Mi casa para mi esposa, mis ahorros divididos entre mis tres hijos, mi carro para mi hermano'. También puedes dejar dinero para ayudar a una causa buena (una escuela, un hospital, etc). Es tu decisión, tú decides qué hacer con tus cosas.",
+      "tiempo_estimado": "1-2 horas para pensarlo bien",
+      "consejos": [
+        "Haz una lista de TODAS tus propiedades y bienes importantes",
+        "Piensa bien a quién quieres beneficiar, no te apresures",
+        "Puedes hablar con tu familia antes de hacer el testamento",
+        "Si tienes hijos menores de edad, decide quién será su tutor",
+        "Puedes cambiar tu testamento las veces que quieras mientras estés vivo",
+        "No tienes que decirle a nadie qué pusiste en tu testamento si no quieres"
+      ],
+      "documentos_requeridos": []
+    },
+    {
+      "numero": 2,
+      "titulo": "Reunir la información de tus herederos",
+      "descripcion": "Necesitas saber los datos completos de las personas a quienes les vas a dejar tus cosas (se llaman herederos). Necesitas su nombre completo (como está en su acta de nacimiento), su fecha de nacimiento, y su parentesco contigo (si es tu hijo, esposa, hermano, etc). Si tienes actas de nacimiento o matrimonio que comprueban el parentesco, es mejor. También necesitas los datos de dos testigos que no sean tus familiares ni herederos. Los testigos solo están presentes cuando firmas el testamento y confirman que realmente fuiste tú quien lo hizo.",
+      "tiempo_estimado": "1 día para conseguir la información",
+      "consejos": [
+        "Anota los nombres completos exactamente como están en los documentos oficiales",
+        "Si no estás seguro de algún dato, pregunta directamente a la persona",
+        "Los testigos pueden ser amigos, vecinos, compañeros de trabajo",
+        "Los testigos deben ser mayores de edad y no pueden ser tus herederos",
+        "Si tienes las actas de nacimiento de tus hijos, llévalas",
+        "No necesitas decirle a tus herederos que los estás poniendo en el testamento"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Datos completos de herederos",
+          "tipo": "digital",
+          "descripcion": "Nombre completo, fecha de nacimiento y parentesco de cada persona a quien le vas a dejar algo. Lo mejor es tener esta información por escrito en una hoja.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Actual",
+          "ejemplos": ["Lista con nombres, fechas de nacimiento y parentescos"]
+        },
+        {
+          "nombre": "Datos de dos testigos",
+          "tipo": "digital",
+          "descripcion": "Nombre completo y datos de contacto de dos personas que te van a servir como testigos. Deben ser mayores de edad y no pueden ser tus familiares ni herederos.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Nombres de dos amigos o conocidos que sirvan de testigos"]
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Ir con un notario público",
+      "descripcion": "Busca un notario público en tu ciudad (puedes buscar en internet 'notarías cerca de mí' o preguntar recomendaciones). Llamas por teléfono y haces una cita para hacer un testamento. El día de tu cita, vas a la notaría con tus documentos. El notario te hace preguntas sobre qué quieres dejar y a quién. Tú le explicas tus deseos. El notario anota todo y te explica las opciones que tienes. También te dice cuánto va a costar (normalmente entre $1,500 y $5,000 pesos dependiendo de tu estado y de cuántas propiedades tengas). Algunos estados tienen programas especiales donde el testamento es más barato o hasta gratis para adultos mayores.",
+      "tiempo_estimado": "1-2 horas",
+      "consejos": [
+        "Llama a varios notarios para comparar precios",
+        "En septiembre muchos estados tienen 'mes del testamento' con descuentos",
+        "Lleva dinero en efectivo o tarjeta para pagar",
+        "No tengas pena de hacer preguntas al notario, para eso está",
+        "El notario no puede obligarte a poner algo que no quieras",
+        "Si algo no te parece, díselo al notario antes de firmar"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Identificación oficial vigente",
+          "tipo": "original",
+          "descripcion": "Tu INE, pasaporte o cédula profesional. Debe estar vigente y en buen estado. El notario necesita verificar que realmente eres tú.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Vigente",
+          "ejemplos": ["INE, Pasaporte, Cédula profesional"]
+        },
+        {
+          "nombre": "Acta de nacimiento",
+          "tipo": "original",
+          "descripcion": "Tu acta de nacimiento certificada. No necesita ser muy reciente pero debe ser original con sellos.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Preferentemente reciente",
+          "ejemplos": ["Acta de nacimiento certificada"]
+        },
+        {
+          "nombre": "Escrituras de propiedades",
+          "tipo": "copia",
+          "descripcion": "Si tienes casa, terrenos o propiedades, lleva copias de las escrituras. Así el notario puede poner los datos exactos de cada propiedad en el testamento.",
+          "obligatorio": false,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Escrituras de casa, terrenos"]
+        },
+        {
+          "nombre": "Documentos de vehículos",
+          "tipo": "copia",
+          "descripcion": "Si vas a heredar carros o motos, lleva copias de las tarjetas de circulación para tener los datos correctos.",
+          "obligatorio": false,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Tarjetas de circulación de vehículos"]
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Firmar el testamento",
+      "descripcion": "Cuando el notario tiene todo listo, te lee el testamento completo en voz alta. Es un documento donde dice quién eres, que estás en tus cinco sentidos, y a quién le dejas cada una de tus cosas. El notario lee todo para que estés seguro de que está correcto. Si algo no está como lo querías, se lo dices y lo cambian. Cuando estés completamente de acuerdo con todo, firmas el testamento. Tus dos testigos también deben estar presentes y firmar. Ellos confirman que fuiste tú quien firmó y que estabas consciente y de acuerdo. El notario también firma y pone su sello oficial. Con esto, tu testamento queda legal y oficialmente válido.",
+      "tiempo_estimado": "1 hora",
+      "consejos": [
+        "Escucha con atención cuando el notario lea el testamento",
+        "Si algo no suena bien o no es lo que querías, dilo inmediatamente",
+        "Los testigos deben traer su INE para identificarse",
+        "No firmes si no estás completamente seguro y de acuerdo",
+        "Puedes pedir al notario que te explique alguna parte si no la entiendes",
+        "Es normal sentirse un poco triste o nervioso, pero es un acto responsable"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Testigos presenciales",
+          "tipo": "original",
+          "descripcion": "Dos personas que estén contigo en el momento de la firma. Deben traer su INE. Deben ser mayores de edad, no pueden ser tus herederos ni familiares directos.",
+          "obligatorio": true,
+          "cantidad": 2,
+          "vigencia": "N/A",
+          "ejemplos": ["Dos amigos o conocidos con INE vigente"]
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "titulo": "Guardar tu comprobante",
+      "descripcion": "El notario te da una copia de tu testamento y un comprobante que dice que hiciste tu testamento con ese notario. El original del testamento se queda guardado en la notaría en un archivo especial. También se registra en el Archivo General de Notarías y en el Registro Nacional de Avisos de Testamento. Guarda tu comprobante en un lugar seguro junto con tus documentos importantes. Puedes decirle a alguien de mucha confianza que hiciste un testamento y con qué notario, pero no tienes que decirle qué pusiste en él. Cuando fallezcas, tus familiares van con ese notario y ahí se abre el testamento para hacer lo que pusiste.",
+      "tiempo_estimado": "5 minutos",
+      "consejos": [
+        "Guarda el comprobante con tus escrituras y documentos importantes",
+        "Puedes decirle a tu familia que ya hiciste testamento, eso les facilitará las cosas después",
+        "No es necesario que les digas qué pusiste, es tu decisión",
+        "Puedes cambiar o cancelar tu testamento cuando quieras yendo con el notario de nuevo",
+        "Si cambias de opinión sobre algo, haces un testamento nuevo y cancela el anterior",
+        "Es recomendable revisar tu testamento cada 5-10 años por si cambia tu situación"
+      ],
+      "documentos_requeridos": []
+    }
+  ],
+  "checklist_completo": {
+    "documentos_obligatorios": [
+      "Identificación oficial vigente",
+      "Acta de nacimiento certificada",
+      "Lista de herederos con datos completos",
+      "Datos de dos testigos (nombres completos)",
+      "Testigos presenciales el día de la firma (con INE)",
+      "Dinero para pagar al notario ($1,500-$5,000)"
+    ],
+    "documentos_opcionales": [
+      "Escrituras de propiedades (copias)",
+      "Tarjetas de circulación de vehículos",
+      "Estados de cuenta bancarios",
+      "Documentos de negocios si tienes",
+      "Acta de matrimonio",
+      "Actas de nacimiento de hijos"
+    ],
+    "recomendaciones_generales": [
+      "Hacer un testamento es un acto de amor hacia tu familia, les evitas problemas después",
+      "No necesitas ser rico para hacer testamento, con que tengas algo es suficiente",
+      "El testamento se puede hacer a cualquier edad, si eres mayor de 16 años puedes",
+      "Puedes cambiar tu testamento las veces que quieras mientras estés vivo",
+      "Si haces un testamento nuevo, el anterior se cancela automáticamente",
+      "Hacer testamento NO es malo ni trae mala suerte, es ser responsable",
+      "Si mueres sin testamento, tus cosas se reparten según la ley, no según tus deseos",
+      "El trámite después de tu muerte es mucho más fácil y rápido si dejaste testamento",
+      "Puedes poner condiciones en tu testamento (por ejemplo, que tu hijo solo reciba si termina la escuela)",
+      "Un testamento bien hecho evita muchas peleas entre familiares después"
+    ]
+  }
+}

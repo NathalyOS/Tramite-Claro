@@ -1,0 +1,148 @@
+{
+  "id": "acta-nacimiento",
+  "nombre": "Acta de Nacimiento Certificada",
+  "categoria": "Documentos Oficiales",
+  "duracion_estimada": "30 minutos a 3 días",
+  "dificultad": "baja",
+  "costo_aproximado": "$176 MXN (en línea) o $100-$200 MXN (en oficina)",
+  "descripcion_simple": "El acta de nacimiento es el papel oficial que dice cuándo y dónde naciste, quiénes son tus papás, y que eres mexicano. Es uno de los documentos más importantes que vas a necesitar en tu vida para casi todos los trámites.",
+  "pasos": [
+    {
+      "numero": 1,
+      "titulo": "Decidir si la sacas en línea o en persona",
+      "descripcion": "Tienes dos formas de sacar tu acta de nacimiento: en línea por internet (es más rápido, tarda minutos) o yendo en persona a una oficina del Registro Civil (tarda más tiempo). La opción de internet solo funciona si naciste después del año 1980 y si tu acta ya está digitalizada en el sistema. Si naciste antes de 1980, probablemente tengas que ir en persona. Para sacar el acta en línea necesitas saber tus datos exactos: tu nombre completo como aparece en tu acta, fecha exacta de nacimiento, lugar donde naciste (estado y municipio), y los nombres completos de tus papás. Si no estás seguro de algún dato, es mejor ir en persona al Registro Civil.",
+      "tiempo_estimado": "5 minutos para decidir",
+      "consejos": [
+        "Si naciste después de 1980, intenta primero sacarla en línea, es más rápido",
+        "Si no encuentras tu acta en línea, ve al Registro Civil",
+        "Para sacar en línea necesitas tarjeta de crédito o débito",
+        "Si nac iste en otro estado, puedes sacar tu acta en línea desde cualquier lugar",
+        "La opción en línea está disponible las 24 horas, todos los días"
+      ],
+      "documentos_requeridos": []
+    },
+    {
+      "numero": 2,
+      "titulo": "Sacar tu acta en línea (opción rápida)",
+      "descripcion": "Si decides sacarlacen línea, entras a la página oficial del gobierno: www.gob.mx/ActaNacimiento. Ahí te pide que pongas tus datos: tu nombre completo, fecha de nacimiento, estado donde naciste, nombres de tus papás. El sistema busca tu acta en la base de datos nacional. Si la encuentra, te muestra un resumen para que confirmes que es la tuya. Si es correcta, le das clic en 'Solicitar'. Te pide que pagues con tarjeta de crédito o débito ($176 pesos). Después de pagar, inmediatamente te deja descargar tu acta en formato PDF. Este PDF es oficial y tiene validez legal, tiene un código QR que cualquiera puede escanear para verificar que es real. Puedes imprimir ese PDF todas las veces que necesites.",
+      "tiempo_estimado": "10-15 minutos",
+      "consejos": [
+        "Verifica muy bien que el nombre y datos sean correctos antes de pagar",
+        "Guarda el PDF en tu computadora, en tu celular y en la nube (Drive, Dropbox)",
+        "Puedes imprimir el PDF en tu casa o en cualquier papelería",
+        "Imprime en papel blanco normal, no necesita papel especial",
+        "Saca varias copias impresas y guárdalas en diferentes lugares",
+        "El código QR es muy importante, asegúrate que se vea bien cuando imprimas"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Datos personales completos",
+          "tipo": "digital",
+          "descripcion": "Tu nombre completo, fecha de nacimiento exacta, estado y municipio donde naciste, y nombres completos de tus papás. Si no estás seguro de algún dato, pregunta a tus papás o revisa tu acta anterior.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Información personal básica"]
+        },
+        {
+          "nombre": "Tarjeta de crédito o débito",
+          "tipo": "original",
+          "descripcion": "Para pagar los $176 pesos en línea. Puede ser Visa, Mastercard o American Express.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Vigente",
+          "ejemplos": ["Tarjeta bancaria"]
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Sacar tu acta en el Registro Civil (opción en persona)",
+      "descripcion": "Si no puedes sacarla en línea o prefieres ir en persona, vas a una oficina del Registro Civil. Puedes ir al Registro Civil de donde naciste o a cualquier oficina del Registro Civil que tenga convenio nacional (casi todas ya tienen). Llegas y pides una 'copia certificada de acta de nacimiento'. Te dan un formato donde escribes tus datos: nombre completo, fecha de nacimiento, lugar de nacimiento, nombres de tus papás. Si sabes el número de tu acta o el número de libro, te ayuda mucho pero no es obligatorio. Entregas el formato y pagas en la caja (entre $100 y $200 pesos dependiendo del estado). El empleado busca tu acta en los archivos y la imprime. Si tu acta es muy antigua, puede tardar un poco más porque la tienen que buscar en libros viejos.",
+      "tiempo_estimado": "1-2 horas en el Registro Civil",
+      "consejos": [
+        "Ve temprano, las oficinas del Registro Civil se llenan mucho",
+        "Lleva identificación oficial por si te la piden",
+        "Si no sabes tu número de acta, no hay problema, la buscan con tu nombre",
+        "El costo varía por estado, pregunta cuánto es antes de formarte",
+        "En algunos Registros Civiles el servicio es el mismo día, en otros regresas al día siguiente",
+        "Si tu acta tiene errores (nombre mal escrito, fecha equivocada), puedes pedir corrección"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Identificación oficial",
+          "tipo": "original",
+          "descripcion": "Tu INE, pasaporte o alguna identificación oficial. Algunas oficinas te la piden para verificar que eres tú quien pide el acta.",
+          "obligatorio": false,
+          "cantidad": 1,
+          "vigencia": "Vigente",
+          "ejemplos": ["INE, Pasaporte"]
+        },
+        {
+          "nombre": "Dinero para pagar",
+          "tipo": "original",
+          "descripcion": "Efectivo entre $100 y $200 pesos para pagar tu acta. El precio exacto depende de tu estado.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Efectivo"]
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Verificar que tu acta esté correcta",
+      "descripcion": "Cuando recibas tu acta (ya sea en PDF en línea o impresa en el Registro Civil), revisa MUY bien que todos los datos sean correctos. Verifica: tu nombre completo está escrito correctamente sin errores, tu fecha de nacimiento es la correcta, el lugar de nacimiento es el correcto, los nombres de tus papás están bien escritos, tu sexo está correcto. Si encuentras algún error (aunque sea una letra mal escrita), debes reportarlo inmediatamente. Los errores en las actas pueden causarte muchos problemas después cuando hagas otros trámites. Si hay un error, puedes iniciar un trámite de 'corrección de acta' en el Registro Civil, pero eso tarda más tiempo y cuesta más.",
+      "tiempo_estimado": "5 minutos para revisar",
+      "consejos": [
+        "Lee tu acta completa de principio a fin, letra por letra",
+        "Compara tu nombre con tu INE u otras identificaciones",
+        "Si hay errores, no uses esa acta, arréglala primero",
+        "Los errores comunes son: letras cambiadas, acentos faltantes, nombres incompletos",
+        "Si tu acta es correcta, saca varias copias y guárdalas bien",
+        "Guarda una copia digital (foto o escaneo) en tu celular"
+      ],
+      "documentos_requeridos": []
+    },
+    {
+      "numero": 5,
+      "titulo": "Guardar tus actas certificadas",
+      "descripcion": "Tu acta de nacimiento es uno de los documentos más importantes que tendrás en tu vida. La necesitas para muchísimos trámites: sacar pasaporte, casarte, inscribir a tus hijos en la escuela, tramitar RFC, sacar licencia, comprar casa, heredar, jubilarte, y muchos más. Por eso es muy importante que la cuides mucho. Guarda tus actas certificadas en una carpeta especial junto con tus otros documentos importantes (INE, CURP, certificados escolares). Es buena idea tener al menos 3 actas certificadas: una que guardes en tu casa en un lugar seguro, una que lleves contigo en tu cartera o folder de documentos, y una que guardes en otro lugar (casa de tus papás, caja fuerte, etc). También ten una copia digital guardada en varios lugares.",
+      "tiempo_estimado": "10 minutos",
+      "consejos": [
+        "Saca al menos 3 actas certificadas y guárdalas en diferentes lugares",
+        "Para trámites normalmente piden actas no mayores a 5 años",
+        "Cuando tu acta tenga más de 5 años, saca una nueva",
+        "No dobles tu acta, guárdala plana en una carpeta o sobre",
+        "Saca copias simples de tu acta para dar cuando pidan 'copia', no des las certificadas",
+        "Si pierdes todas tus actas, puedes sacar más, el proceso es el mismo"
+      ],
+      "documentos_requeridos": []
+    }
+  ],
+  "checklist_completo": {
+    "documentos_obligatorios": [
+      "Datos personales completos (nombre, fecha de nacimiento, lugar, nombres de padres)",
+      "Tarjeta de crédito/débito (si sacas en línea)",
+      "Dinero en efectivo $100-$200 (si sacas en persona)",
+      "Identificación oficial (recomendado si vas en persona)"
+    ],
+    "documentos_opcionales": [
+      "Número de acta anterior (si lo tienes)",
+      "Número de libro del registro (si lo tienes)",
+      "Acta anterior (para comparar datos)"
+    ],
+    "recomendaciones_generales": [
+      "El acta en línea es igual de válida que la del Registro Civil físico",
+      "El código QR de las actas en línea sirve para verificar su autenticidad",
+      "Puedes sacar tu acta desde cualquier parte de México o del mundo (en línea)",
+      "Si tu acta dice 'COPIA CERTIFICADA' con sello, es oficial",
+      "Las copias simples (fotocopias) NO sirven para trámites oficiales",
+      "Para la mayoría de trámites te piden acta no mayor a 5 años",
+      "Saca una acta nueva cada vez que la necesites para trámites importantes",
+      "Si cambias de nombre por matrimonio, saca acta nueva con tu nuevo nombre",
+      "Si tu acta tiene errores, corrige rápidamente para evitar problemas",
+      "Guarda tus actas en un lugar seco, sin humedad, para que no se maltraten"
+    ]
+  }
+}

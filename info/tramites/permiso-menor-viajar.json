@@ -1,0 +1,202 @@
+{
+  "id": "permiso-menor-viajar",
+  "nombre": "Permiso Notarial para Menor de Edad para Viajar",
+  "categoria": "Notarial",
+  "duracion_estimada": "1-2 horas",
+  "dificultad": "baja",
+  "costo_approximado": "$500 - $1,500 MXN",
+  "descripcion_simple": "Es un papel oficial que hacen los papás ante un notario donde dan permiso para que su hijo menor de edad (menos de 18 años) pueda viajar solo, con otra persona que no sea sus papás, o solo con uno de los papás. Es como decir oficialmente: 'Yo como papá/mamá autorizo que mi hijo viaje'.",
+  "pasos": [
+    {
+      "numero": 1,
+      "titulo": "Entender cuándo necesitas el permiso",
+      "descripcion": "Los niños y jóvenes menores de 18 años necesitan este permiso cuando van a viajar en ciertas situaciones: si van a viajar solos (sin ninguno de sus papás), si van a viajar solo con su mamá o solo con su papá pero no con los dos, si van a viajar con otro familiar (abuelos, tíos, hermanos mayores) o con maestros en viaje escolar, o si van a salir de México a otro país. Si el menor va a viajar con sus DOS papás juntos, NO necesitan este permiso. El permiso lo piden en los aeropuertos, en las fronteras terrestres, y a veces en terminales de autobuses. Es mejor tenerlo siempre que un menor viaje, aunque sea dentro de México.",
+      "tiempo_estimado": "15 minutos para entender",
+      "consejos": [
+        "Aunque el viaje sea dentro de México, es bueno tener el permiso",
+        "En aeropuertos siempre revisan si el menor viaja con ambos papás",
+        "Si los papás están divorciados, ambos deben firmar el permiso",
+        "Si uno de los papás murió, necesitas el acta de defunción",
+        "Si solo uno de los papás tiene la custodia legal, necesitas el documento que lo demuestre",
+        "Es mejor hacer el permiso con tiempo, no dejarlo para el último día"
+      ],
+      "documentos_requeridos": []
+    },
+    {
+      "numero": 2,
+      "titulo": "Reunir los documentos necesarios",
+      "descripcion": "Para hacer el permiso ante el notario necesitas juntar varios papeles. Primero, las identificaciones oficiales de los papás (INE, pasaporte). Segundo, el acta de nacimiento original y reciente del niño o joven (no mayor a 6 meses). Si el menor tiene pasaporte, es bueno llevarlo también. Si el menor va a viajar con alguien específico (un tío, abuelo, maestro), necesitas también la identificación de esa persona. También necesitas tener los datos del viaje: a dónde va, en qué fechas (fecha de salida y fecha de regreso), con quién va. Algunos notarios piden también un comprobante de domicilio. Si los papás están divorciados, lleva el acta de divorcio. Si uno de los papás murió, lleva el acta de defunción.",
+      "tiempo_estimado": "1 día para juntar todo",
+      "consejos": [
+        "Saca una acta de nacimiento nueva del menor, no uses una que tenga más de 6 meses",
+        "Si los dos papás no pueden ir juntos al notario, uno puede dar un poder al otro",
+        "Si uno de los papás está fuera del país, puede hacerlo en el consulado mexicano",
+        "Ten a la mano los datos exactos del viaje: fechas, destino, vuelos",
+        "Si el menor va en viaje escolar, pide a la escuela una carta oficial del viaje",
+        "Lleva copias de todos los documentos, algunos notarios las piden"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Identificaciones oficiales de los papás",
+          "tipo": "original",
+          "descripcion": "Las credenciales oficiales de la mamá y del papá del menor. Pueden ser INE, pasaporte mexicano, o cédula profesional. Deben estar vigentes y en buen estado. Si solo uno de los papás tiene la patria potestad, solo necesitas la de esa persona.",
+          "obligatorio": true,
+          "cantidad": 2,
+          "vigencia": "Vigente",
+          "ejemplos": ["INE de mamá y papá, Pasaportes"]
+        },
+        {
+          "nombre": "Acta de nacimiento del menor",
+          "tipo": "original",
+          "descripcion": "El acta de nacimiento original y certificada del niño o joven que va a viajar. Debe ser reciente, de hace máximo 6 meses. Debe tener los sellos oficiales del Registro Civil.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "No mayor a 6 meses",
+          "ejemplos": ["Acta de nacimiento certificada reciente"]
+        },
+        {
+          "nombre": "Pasaporte del menor",
+          "tipo": "original",
+          "descripcion": "Si el menor ya tiene pasaporte, llévalo. Si no tiene, no es obligatorio para hacer el permiso, pero sí lo necesitará para viajar si sale del país.",
+          "obligatorio": false,
+          "cantidad": 1,
+          "vigencia": "Vigente",
+          "ejemplos": ["Pasaporte mexicano del menor"]
+        },
+        {
+          "nombre": "Identificación de la persona con quien viajará",
+          "tipo": "original",
+          "descripcion": "Si el menor va a viajar con alguien específico (tío, abuelo, maestro, amigo), necesitas la identificación oficial de esa persona. Si va a viajar solo, no necesitas esto.",
+          "obligatorio": false,
+          "cantidad": 1,
+          "vigencia": "Vigente",
+          "ejemplos": ["INE de la persona acompañante"]
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Ir a la notaría con los papás y el menor",
+      "descripcion": "Los dos papás (mamá y papá) deben ir juntos a una notaría. El menor también debe ir con ellos. Puedes ir a cualquier notaría (busca 'notarías cerca de mí' en internet). Algunos notarios te piden cita, otros te atienden sin cita. Al llegar, dices que vas a hacer un permiso de viaje para tu hijo menor de edad. El notario te explica el proceso y te pregunta los detalles del viaje. Le das todos los documentos. El notario revisa que todo esté en orden. Te pregunta: ¿a dónde va a viajar el menor?, ¿en qué fechas?, ¿con quién va?, ¿para qué va? (vacaciones, visita familiar, viaje escolar, etc). Tú y el otro papá le explican todo.",
+      "tiempo_estimado": "1-2 horas",
+      "consejos": [
+        "Llama antes a la notaría para preguntar si necesitas cita y cuánto cuesta",
+        "Algunos notarios piden que el menor esté presente, otros no, pregunta antes",
+        "Si uno de los papás no puede ir, puede dar un poder notarial al otro",
+        "Lleva dinero en efectivo o tarjeta para pagar al notario",
+        "Sé muy específico con las fechas del viaje, mejor da un rango amplio por si cambian planes",
+        "Si el menor va a hacer varios viajes, pide un permiso con fechas amplias o permiso anual"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Todos los documentos del paso 2",
+          "tipo": "original",
+          "descripcion": "Todos los papeles que juntaste: identificaciones de los papás, acta del menor, pasaporte del menor si tiene, identificación del acompañante si aplica.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Folder con todos los documentos"]
+        },
+        {
+          "nombre": "Información detallada del viaje",
+          "tipo": "digital",
+          "descripcion": "Los datos exactos del viaje: destino (ciudad y país), fechas de salida y regreso, con quién va el menor, motivo del viaje. Es bueno llevar esto anotado para no olvidar nada.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Hoja con datos del viaje anotados"]
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Firmar el permiso ante el notario",
+      "descripcion": "El notario hace un documento oficial (el permiso). Lo lee en voz alta para que todos escuchen. El documento dice: los nombres completos de los papás, el nombre completo del menor, a dónde va a viajar, en qué fechas, con quién va, y que los papás dan su consentimiento (permiso) para ese viaje. Si están todos de acuerdo con lo que dice el documento, los papás firman el permiso. El menor NO firma (porque es menor de edad). El notario también firma y pone su sello oficial. Este sello es muy importante porque hace que el documento sea legal. El notario te da copias certificadas del permiso. Normalmente dan 2 o 3 copias. Cada copia tiene el sello del notario y es oficial.",
+      "tiempo_estimado": "30 minutos",
+      "consejos": [
+        "Escucha con atención cuando el notario lea el documento",
+        "Si algo no está como lo dijiste, corrígelo antes de firmar",
+        "Verifica que las fechas del viaje estén correctas",
+        "Pide al menos 3 copias certificadas del permiso",
+        "Cada copia certificada tiene el mismo valor legal",
+        "Guarda las copias en lugares diferentes por seguridad"
+      ],
+      "documentos_requeridos": []
+    },
+    {
+      "numero": 5,
+      "titulo": "Llevar el permiso el día del viaje",
+      "descripcion": "El día que el menor va a viajar, debe llevar el permiso notarial original (una de las copias certificadas que te dio el notario). También debe llevar su identificación (si tiene INE o pasaporte) y su acta de nacimiento. En el aeropuerto, frontera o terminal, los oficiales de migración o las aerolíneas le van a pedir que muestre el permiso. Lo revisan para verificar que todo esté en orden. Si el permiso dice que viaja con una persona específica (por ejemplo, un tío), esa persona debe estar presente y mostrar su identificación. Si todo está correcto, dejan pasar al menor. Es importante llevar el permiso ORIGINAL (la copia certificada con el sello del notario), una fotocopia simple no sirve.",
+      "tiempo_estimado": "5-10 minutos en revisión",
+      "consejos": [
+        "Lleva el permiso original en un folder o carpeta para que no se maltrate",
+        "Saca copias del permiso y guárdalas en casa por si se pierde",
+        "Toma fotos del permiso con tu celular como respaldo",
+        "Si el menor viaja solo, dale el permiso y dile que lo cuide mucho",
+        "Llega temprano al aeropuerto porque la revisión de documentos de menores tarda más",
+        "Si pierdes el permiso antes del viaje, puedes pedir copias extras al notario"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Permiso notarial original",
+          "tipo": "original",
+          "descripcion": "Una de las copias certificadas del permiso que te dio el notario. Debe tener el sello oficial del notario. Una fotocopia simple NO sirve.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Debe incluir las fechas del viaje",
+          "ejemplos": ["Permiso notarial certificado"]
+        },
+        {
+          "nombre": "Identificación del menor",
+          "tipo": "original",
+          "descripcion": "Pasaporte del menor, o su acta de nacimiento, o si ya tiene INE (solo si es mayor de 16). Lo piden para verificar la identidad del menor.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Vigente o reciente",
+          "ejemplos": ["Pasaporte, Acta de nacimiento, INE si aplica"]
+        },
+        {
+          "nombre": "Boletos de viaje",
+          "tipo": "original",
+          "descripcion": "Los boletos de avión, autobús o tren. Deben coincidir con las fechas que están en el permiso.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Del viaje actual",
+          "ejemplos": ["Boleto de avión, Boleto de autobús"]
+        }
+      ]
+    }
+  ],
+  "checklist_completo": {
+    "documentos_obligatorios": [
+      "Identificaciones oficiales de mamá y papá (vigentes)",
+      "Acta de nacimiento del menor (no mayor a 6 meses)",
+      "Datos detallados del viaje (destino, fechas, acompañante)",
+      "Dinero para pagar al notario ($500-$1,500)",
+      "Presencia de ambos papás en la notaría",
+      "Permiso notarial original para el día del viaje",
+      "Identificación del menor (pasaporte o acta)",
+      "Boletos de viaje"
+    ],
+    "documentos_opcionales": [
+      "Pasaporte del menor (si va al extranjero)",
+      "Identificación de la persona acompañante",
+      "Carta de la escuela (si es viaje escolar)",
+      "Acta de divorcio (si los papás están divorciados)",
+      "Acta de defunción (si uno de los papás murió)",
+      "Comprobante de domicilio"
+    ],
+    "recomendaciones_generales": [
+      "El permiso es obligatorio para menores de 18 años que viajan sin ambos papás",
+      "Es mejor hacer el permiso con al menos 1 semana antes del viaje",
+      "Si los papás están divorciados, AMBOS deben firmar el permiso",
+      "Puedes hacer un permiso para varios viajes o para todo un año",
+      "Cada notaría cobra diferente, pregunta precios antes de ir",
+      "En septiembre muchos notarios hacen descuentos para permisos de viaje",
+      "El permiso NO SE PUEDE hacer por internet, debe ser en persona ante notario",
+      "Si uno de los papás no puede ir, puede dar poder al otro papá ante notario",
+      "Guarda copias del permiso en casa y en tu celular (fotos)",
+      "Si el menor viaja mucho, considera hacer un permiso anual amplio"
+    ]
+  }
+}

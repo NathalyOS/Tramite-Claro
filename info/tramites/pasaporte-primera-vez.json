@@ -1,0 +1,221 @@
+{
+  "id": "pasaporte-primera-vez",
+  "nombre": "Pasaporte Mexicano Primera Vez",
+  "categoria": "Nacional",
+  "duracion_estimada": "1-2 semanas",
+  "dificultad": "media",
+  "costo_aproximado": "$1,470 MXN (3 años), $2,000 MXN (6 años), $2,840 MXN (10 años)",
+  "descripcion_simple": "Es tu libreta azul oficial que necesitas para poder viajar a otros países fuera de México. Es como tu identificación internacional que dice que eres mexicano y te permite salir y entrar del país.",
+  "pasos": [
+    {
+      "numero": 1,
+      "titulo": "Sacar tu cita en internet",
+      "descripcion": "Primero tienes que entrar a una página de internet del gobierno que se llama 'Citas SRE' (www.citas.sre.gob.mx). Ahí te registras poniendo tu correo electrónico y creando una contraseña. Luego eliges el lugar donde quieres que te hagan tu pasaporte (puedes escoger la oficina de pasaportes que esté más cerca de tu casa). La página te muestra un calendario con fechas y horas disponibles. Escoges la que mejor te acomode. Te mandan un correo con todos los datos de tu cita: día, hora, lugar y un número de folio. Es muy importante que guardes ese correo y que imprimas tu comprobante de cita porque sin él no te dejan entrar.",
+      "tiempo_estimado": "15-20 minutos",
+      "consejos": [
+        "Las citas se llenan rápido, revisa el calendario seguido porque a veces la gente cancela y se abren espacios",
+        "Agenda tu cita con tiempo, a veces las fechas disponibles están a 2-3 semanas",
+        "Si tienes viaje próximo, hay citas de 'urgencia' pero cuestan el doble",
+        "Guarda tu número de folio, lo necesitas para todo",
+        "Puedes reprogramar tu cita 1 vez sin costo si no puedes ir",
+        "Llega 10 minutos antes de tu cita, pero no más temprano porque no hay dónde esperar"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Correo electrónico",
+          "tipo": "digital",
+          "descripcion": "Necesitas un correo electrónico que uses seguido porque ahí te van a mandar la confirmación de tu cita y el comprobante que debes imprimir.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Activo",
+          "ejemplos": ["Gmail, Hotmail, Yahoo, Outlook"]
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "titulo": "Pagar el pasaporte en el banco",
+      "descripcion": "Tienes dos opciones para pagar: puedes pagar en internet con tarjeta de crédito o débito en la misma página donde sacaste tu cita, o puedes ir a un banco y pagar en efectivo. Si vas al banco, pide el formato para pagar el pasaporte y llena tus datos. El banco te va a dar un recibo con un número de operación que es muy importante. Tienes que decidir cuántos años quieres tu pasaporte: 3 años cuesta $1,470 pesos, 6 años cuesta $2,000 pesos, o 10 años cuesta $2,840 pesos. La mayoría de la gente saca el de 10 años porque te dura más tiempo y te ahorras tener que volver a hacer el trámite pronto.",
+      "tiempo_estimado": "30 minutos si pagas en banco, 10 minutos si pagas en línea",
+      "consejos": [
+        "Si pagas en línea es más rápido y te ahorras ir al banco",
+        "Si pagas en banco, guarda MUY bien tu recibo de pago",
+        "El pago es válido por 6 meses, si no usas tu cita en ese tiempo pierdes el dinero",
+        "No se puede pagar con cheque, solo efectivo o tarjeta",
+        "Si pagas en línea, imprime el comprobante de pago",
+        "El pasaporte de 10 años es la mejor opción, solo cuesta un poco más pero dura mucho"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Dinero en efectivo o tarjeta",
+          "tipo": "original",
+          "descripcion": "El dinero que necesitas para pagar tu pasaporte. Depende de cuántos años lo quieras: $1,470 (3 años), $2,000 (6 años) o $2,840 (10 años).",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Efectivo, Tarjeta de débito, Tarjeta de crédito"]
+        },
+        {
+          "nombre": "Número de folio de tu cita",
+          "tipo": "digital",
+          "descripcion": "El número que te dieron cuando sacaste tu cita en internet. Lo necesitas si pagas en línea.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Folio de cita SRE"]
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Reunir tus documentos",
+      "descripcion": "Antes del día de tu cita, necesitas juntar varios documentos importantes. Lo más importante es tu acta de nacimiento. Debe ser original (no fotocopia) y debe ser reciente, de hace máximo 5 años. La puedes pedir en el Registro Civil o descargar de internet en la página oficial. También necesitas una identificación oficial con tu foto, puede ser tu INE (credencial para votar), tu cartilla militar, o tu cédula profesional si ya terminaste una carrera. Si eres menor de edad necesitas tu CURP impreso. Todos estos papeles los necesitas en original, no pueden ser copias. Es mejor tenerlos listos uno o dos días antes para que no se te olvide nada el día de tu cita.",
+      "tiempo_estimado": "1-2 días para conseguir todo",
+      "consejos": [
+        "Tu acta de nacimiento debe ser certificada, no una copia simple",
+        "Si tu acta tiene más de 5 años, saca una nueva, es rápida y barata",
+        "Puedes descargar tu acta de nacimiento en línea de la página del gobierno",
+        "Si cambió tu nombre por matrimonio, lleva también tu acta de matrimonio",
+        "Lleva copias extras por si acaso, aunque no te las piden",
+        "Si eres menor de 18 años, tus papás o tutor deben ir contigo"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Acta de nacimiento original",
+          "tipo": "original",
+          "descripcion": "Es el papel oficial que demuestra cuándo y dónde naciste. Debe ser original certificada del Registro Civil. Si es de formato viejo (anterior a 2008) o tiene más de 5 años, saca una nueva. Tiene que verse bien, con todos los sellos y sin manchas o roturas.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "No mayor a 5 años de expedición",
+          "ejemplos": ["Acta de nacimiento certificada del Registro Civil"]
+        },
+        {
+          "nombre": "Identificación oficial con fotografía",
+          "tipo": "original",
+          "descripcion": "Una credencial oficial que tenga tu foto y tu firma. Debe estar vigente (no vencida) y en buen estado. Si eres mayor de 18 años, la más común es la INE. Si eres menor, puede ser tu cartilla militar o cédula profesional.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Vigente",
+          "ejemplos": ["INE, Cartilla Militar, Cédula Profesional, Credencial escolar con validez oficial"]
+        },
+        {
+          "nombre": "CURP impreso",
+          "tipo": "copia",
+          "descripcion": "El papel con tu Clave Única de Registro de Población (18 letras y números). Lo puedes imprimir gratis de la página del gobierno (www.gob.mx/curp). Debe verse bien, sin manchas. Obligatorio para menores de edad, recomendado para adultos.",
+          "obligatorio": false,
+          "cantidad": 1,
+          "vigencia": "Actualizado",
+          "ejemplos": ["CURP impreso con código QR"]
+        },
+        {
+          "nombre": "Comprobante de pago",
+          "tipo": "original",
+          "descripcion": "El recibo que te dieron cuando pagaste en el banco, o el comprobante que imprimiste si pagaste en línea. Tiene un número de operación que revisan para confirmar que ya pagaste.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Válido por 6 meses",
+          "ejemplos": ["Recibo de banco, Comprobante de pago en línea"]
+        },
+        {
+          "nombre": "Comprobante de cita impreso",
+          "tipo": "copia",
+          "descripcion": "El papel que imprimiste con los datos de tu cita: fecha, hora, lugar y folio. Sin este papel no te dejan pasar.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Para la fecha de tu cita",
+          "ejemplos": ["Comprobante de cita SRE"]
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Asistir a tu cita",
+      "descripcion": "El día de tu cita llegas al edificio de la Secretaría de Relaciones Exteriores (SRE) o Delegación de la SRE que escogiste. Llegas 10 minutos antes de tu hora. En la entrada te revisan tus papeles y tu comprobante de cita. Pasas a formarte. Cuando sea tu turno, te llaman a una ventanilla donde un empleado del gobierno revisa todos tus documentos. Te toman una foto ahí mismo (no necesitas llevar fotos) y te toman tus huellas digitales (pones tus dedos en una maquinita). Te hacen algunas preguntas sencillas como: ¿cuál es tu nombre completo? ¿dónde naciste? ¿para qué necesitas el pasaporte? Todo el proceso tarda como 30-45 minutos. Al final te dan un comprobante que dice cuándo puedes regresar a recoger tu pasaporte.",
+      "tiempo_estimado": "30-45 minutos",
+      "consejos": [
+        "Vístete presentable, la foto que te toman ahí sale en tu pasaporte por varios años",
+        "No uses lentes oscuros, gorra o sombrero, no te dejan tomarte la foto así",
+        "Puedes usar lentes normales si los necesitas para ver",
+        "No lleves celular o bolsas grandes, hay casilleros para guardar tus cosas",
+        "Si eres menor de edad, tu mamá o papá debe estar contigo",
+        "Contesta las preguntas con la verdad, es información oficial",
+        "Sé amable con el personal, ellos están haciendo su trabajo"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Todos los documentos del paso 3",
+          "tipo": "original",
+          "descripcion": "Todos los papeles que juntaste: acta de nacimiento, identificación, CURP, comprobante de pago y comprobante de cita. Llévalos en una carpeta o folder para que estén organizados.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Folder con todos los documentos organizados"]
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "titulo": "Recoger tu pasaporte",
+      "descripcion": "Normalmente tu pasaporte está listo en 1 semana (5 a 7 días hábiles). En el comprobante que te dieron dice exactamente qué día puedes ir a recogerlo. Ese día vas a la misma oficina donde hiciste el trámite. Llegas a la ventanilla de 'Entrega de pasaportes' y presentas tu comprobante y tu identificación oficial. Te entregan tu pasaporte nuevo en una cajita. Revisa inmediatamente que todos tus datos estén correctos: tu nombre completo, fecha de nacimiento, foto, firma. Si hay algún error, díselo inmediatamente al empleado. Si todo está bien, tu pasaporte ya es tuyo y puedes usarlo para viajar. ¡Cuídalo mucho porque es un documento muy valioso!",
+      "tiempo_estimado": "15-20 minutos",
+      "consejos": [
+        "No vayas antes del día que te dijeron, tu pasaporte no estará listo",
+        "Revisa TODO muy bien antes de salir de la oficina: nombre, apellidos, fecha de nacimiento, foto",
+        "Si hay un error, lo corrigen gratis si lo reportas el mismo día",
+        "Tu pasaporte tiene 32 páginas, úsalas para los sellos de entrada y salida de países",
+        "Guarda tu pasaporte en un lugar seguro, no lo dobles ni lo maltrates",
+        "Saca una copia de tu pasaporte y guárdala aparte por si lo pierdes",
+        "Si vas a viajar pronto, asegúrate de que tu pasaporte tenga al menos 6 meses de vigencia"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Comprobante de trámite",
+          "tipo": "original",
+          "descripcion": "El papel que te dieron cuando hiciste el trámite. Dice tu nombre, folio y la fecha en que puedes recoger tu pasaporte.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Comprobante de trámite de pasaporte"]
+        },
+        {
+          "nombre": "Identificación oficial",
+          "tipo": "original",
+          "descripcion": "La misma identificación que llevaste el día de tu cita. Puede ser tu INE. La necesitan para comprobar que eres tú quien está recogiendo el pasaporte.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Vigente",
+          "ejemplos": ["INE, Cartilla Militar, Cédula Profesional"]
+        }
+      ]
+    }
+  ],
+  "checklist_completo": {
+    "documentos_obligatorios": [
+      "Acta de nacimiento original (no mayor a 5 años)",
+      "Identificación oficial con fotografía vigente",
+      "Comprobante de pago del pasaporte",
+      "Comprobante de cita impreso",
+      "Dinero para pagar ($1,470, $2,000 o $2,840 según vigencia)",
+      "Correo electrónico activo",
+      "Comprobante de trámite para recoger pasaporte"
+    ],
+    "documentos_opcionales": [
+      "CURP impreso (obligatorio para menores, recomendado para adultos)",
+      "Acta de matrimonio (si cambió tu nombre)",
+      "Copia de documentos (por seguridad)",
+      "Carta de consentimiento de padres (si eres menor de edad)"
+    ],
+    "recomendaciones_generales": [
+      "El pasaporte de 10 años ($2,840) es la mejor inversión a largo plazo",
+      "Tu acta de nacimiento debe ser certificada, las copias simples no sirven",
+      "Agenda tu cita con anticipación, las fechas se llenan rápido",
+      "El trámite normal tarda 1 semana, el exprés tarda 2 días pero cuesta el doble",
+      "Tu foto la toman ahí mismo, no necesitas llevar fotos",
+      "Si eres menor de 18 años, tus papás deben acompañarte",
+      "Revisa muy bien tu pasaporte antes de salir de la oficina",
+      "Tu pasaporte debe tener al menos 6 meses de vigencia para viajar a muchos países",
+      "Cuida tu pasaporte como oro, si lo pierdes el trámite de reposición es caro y tardado",
+      "Puedes usar tu pasaporte como identificación oficial en México"
+    ]
+  }
+}

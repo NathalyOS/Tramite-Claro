@@ -1,0 +1,210 @@
+{
+  "id": "escrituras-propiedad",
+  "nombre": "Escrituras de Propiedad de un Inmueble",
+  "categoria": "Inmobiliario",
+  "duracion_estimada": "2-4 meses",
+  "dificultad": "alta",
+  "costo_aproximado": "$30,000 - $150,000 MXN (depende del valor de la propiedad)",
+  "descripcion_simple": "Las escrituras son los papeles oficiales que dicen que una casa o terreno es tuyo. Es como el título de propiedad que hace un notario público para que el gobierno sepa que tú eres el dueño legal de ese lugar.",
+  "pasos": [
+    {
+      "numero": 1,
+      "titulo": "Encontrar la casa o terreno que quieres comprar",
+      "descripcion": "Primero debes encontrar el lugar que quieres comprar. Puede ser una casa, un departamento, un terreno, o un local comercial. Puedes buscarlo en internet, con agentes de bienes raíces, o porque alguien te lo quiere vender. Es MUY importante que visites el lugar varias veces, de día y de noche, para ver cómo es la zona. Pregunta a los vecinos cómo está el lugar. Revisa que la casa no tenga problemas: goteras, grietas grandes, problemas de agua o luz. Negocia el precio con el vendedor hasta que los dos estén de acuerdo. Ese precio que acuerden va a ser el que pones en el contrato.",
+      "tiempo_estimado": "1-4 semanas",
+      "consejos": [
+        "No te apresures a comprar, visita varios lugares antes de decidir",
+        "Investiga cuánto cuestan otras casas similares en esa zona",
+        "Revisa que el lugar tenga todos los servicios: agua, luz, drenaje",
+        "Pide ver los recibos de predial y servicios para saber si están al corriente",
+        "Si puedes, lleva a un ingeniero o arquitecto para que revise la construcción",
+        "Desconfía si el precio es muy bajo comparado con otros lugares similares"
+      ],
+      "documentos_requeridos": []
+    },
+    {
+      "numero": 2,
+      "titulo": "Revisar que la propiedad esté libre de problemas",
+      "descripcion": "Antes de comprar, debes verificar que la propiedad no tenga problemas legales. Para esto vas al Registro Público de la Propiedad de tu ciudad y pides un 'Certificado de libertad de gravámenes'. Este certificado te dice si la casa tiene deudas, si está hipotecada, si alguien más la reclama, o si hay algún problema legal. Si el certificado dice que todo está limpio, puedes seguir adelante. Si dice que hay problemas, el vendedor debe arreglarlos primero antes de venderte. También pide que te enseñen las escrituras actuales de la propiedad para verificar que el vendedor realmente es el dueño. Compara que el nombre del vendedor sea el mismo que está en las escrituras.",
+      "tiempo_estimado": "1 semana",
+      "consejos": [
+        "Este paso es MUY importante, no te lo saltes",
+        "El certificado de libertad de gravámenes cuesta como $500-$1,000 pesos",
+        "Si hay problemas en el certificado, NO COMPRES hasta que se arreglen",
+        "Verifica que la dirección en las escrituras sea exactamente la de la casa",
+        "Si el vendedor se niega a darte información, desconfía",
+        "Puedes contratar a un abogado para que te ayude con esta revisión"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Certificado de libertad de gravámenes",
+          "tipo": "original",
+          "descripcion": "Es un papel oficial del Registro Público de la Propiedad que dice si la casa tiene problemas legales, deudas, o embargos. Debe ser reciente (no mayor a 30 días). Cuesta entre $500 y $1,000 pesos. Lo pide el vendedor o tú puedes ir a pedirlo.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "No mayor a 30 días",
+          "ejemplos": ["Certificado del Registro Público de la Propiedad"]
+        },
+        {
+          "nombre": "Escrituras actuales de la propiedad",
+          "tipo": "original",
+          "descripcion": "Los papeles oficiales que tiene el vendedor que demuestran que él es el dueño. Deben estar a su nombre y con todos los sellos del notario.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Escritura pública protocolizada"]
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Ir con un notario público",
+      "descripcion": "Un notario público es un abogado especial que el gobierno autorizó para hacer documentos oficiales como escrituras. Tú y el vendedor deben ir juntos al notario. Pueden elegir el notario que quieran (búscalo en internet o pregunta recomendaciones). El notario les explica todo el proceso y cuánto va a costar. Le entregas todos tus documentos y los del vendedor. El notario revisa que todo esté en orden. Si vas a pagar con un crédito del banco (hipoteca), el banco también debe estar presente. El notario hace un borrador del contrato de compraventa donde dice cuánto cuesta la casa, quién la vende, quién la compra, cómo van a pagar, etc. Tú y el vendedor leen el borrador y si están de acuerdo, dicen que sí.",
+      "tiempo_estimado": "1-2 semanas",
+      "consejos": [
+        "Elige un notario de confianza, pregunta recomendaciones",
+        "El notario cobra un porcentaje del valor de la casa (normalmente 5%-8%)",
+        "Pide al notario que te explique TODO, es tu derecho",
+        "Lee MUY bien el contrato antes de firmar, si no entiendes algo, pregunta",
+        "Guarda copias de todos los papeles que firmas",
+        "Si algo del contrato no te parece, dilo, el notario lo puede cambiar"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Identificación oficial del comprador",
+          "tipo": "original",
+          "descripcion": "Tu INE, pasaporte o cédula profesional. Debe estar vigente. Si eres extranjero, tu FM2 o FM3.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Vigente",
+          "ejemplos": ["INE, Pasaporte, Cédula profesional"]
+        },
+        {
+          "nombre": "RFC del comprador",
+          "tipo": "copia",
+          "descripcion": "Tu Registro Federal de Contribuyentes. El notario lo necesita para los impuestos.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Cédula de RFC, Constancia de situación fiscal"]
+        },
+        {
+          "nombre": "CURP del comprador",
+          "tipo": "copia",
+          "descripcion": "Tu CURP impreso. El notario lo necesita para el registro.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["CURP impreso"]
+        },
+        {
+          "nombre": "Comprobante de domicilio del comprador",
+          "tipo": "original",
+          "descripcion": "Un recibo reciente de luz, agua o teléfono de donde vives actualmente.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "No mayor a 3 meses",
+          "ejemplos": ["Recibo de CFE, agua, teléfono"]
+        },
+        {
+          "nombre": "Todos los documentos del vendedor",
+          "tipo": "original",
+          "descripcion": "El vendedor debe llevar su INE, RFC, CURP, y las escrituras actuales de la propiedad.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Documentos del vendedor"]
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Pagar los impuestos y gastos notariales",
+      "descripcion": "Cuando compras una casa tienes que pagar varios gastos e impuestos al gobierno. El más importante es el ISR (Impuesto Sobre la Renta) que paga el vendedor, normalmente es 5% del precio de venta. Tú como comprador pagas el Impuesto de Adquisición de Inmuebles, que es 2%-5% del valor de la casa (depende de tu estado). También pagas los gastos del notario (5%-8% del valor), el Registro Público de la Propiedad (como $3,000-$5,000 pesos), y otros gastos menores. El notario te hace un desglose (lista) de todos los gastos. Normalmente todos estos gastos suman entre 8%-15% del valor total de la casa. Por ejemplo, si la casa cuesta $1,000,000 de pesos, los gastos pueden ser entre $80,000 y $150,000 pesos extras.",
+      "tiempo_estimado": "1 semana",
+      "consejos": [
+        "Pregunta al notario el desglose COMPLETO de gastos antes de empezar",
+        "Algunos gastos los paga el vendedor y otros el comprador, aclara quién paga qué",
+        "Puedes negociar con el vendedor que pague parte de los gastos",
+        "Ten dinero extra disponible para estos gastos, no solo para la casa",
+        "Puedes pagar con cheque de caja, transferencia o efectivo",
+        "Pide todos tus recibos de pago, son deducibles de impuestos"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Dinero para gastos e impuestos",
+          "tipo": "original",
+          "descripcion": "El dinero para pagar todos los impuestos y gastos notariales. Normalmente es 8%-15% del valor de la casa. Puede ser en cheque, transferencia o efectivo.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Cheque de caja, Transferencia bancaria, Efectivo"]
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "titulo": "Firmar las escrituras",
+      "descripcion": "Cuando todo está pagado y listo, el notario hace la cita para la firma oficial de las escrituras. Es un momento muy importante. Tú, el vendedor, y a veces personas del banco (si hay hipoteca) van a la notaría. El notario lee en voz alta toda la escritura, que es un documento largo donde dice todos los detalles: quién vende, quién compra, descripción completa de la propiedad (dirección, medidas, colindancias), cuánto cuesta, cómo se paga, etc. Al final, tú y el vendedor firman las escrituras. Con tu firma, oficialmente eres el nuevo dueño. El notario te da una copia certificada de la escritura. También te dan las llaves de tu nueva casa. ¡Felicidades, ya tienes tu propiedad!",
+      "tiempo_estimado": "2 horas",
+      "consejos": [
+        "Lee todo con cuidado antes de firmar, aunque sea largo",
+        "Si algo no está como lo acordaron, dilo antes de firmar",
+        "Lleva una pluma de tinta azul o negra",
+        "Es recomendable llevar un abogado de confianza a la firma",
+        "Después de firmar, pide al vendedor que te entregue todos los manuales, garantías y copias de llaves",
+        "Toma fotos de tu firma en las escrituras como recuerdo"
+      ],
+      "documentos_requeridos": []
+    },
+    {
+      "numero": 6,
+      "titulo": "Registrar tu propiedad",
+      "descripcion": "El notario se encarga de llevar las escrituras al Registro Público de la Propiedad para inscribirlas a tu nombre. Este trámite tarda entre 2 semanas y 2 meses (depende de cada estado). Cuando se complete el registro, tu nombre queda oficialmente como dueño en los archivos del gobierno. El notario te avisa cuando esté listo y te entrega las escrituras ya registradas. Estas escrituras tienen un sello más del Registro Público. Guarda estas escrituras en un lugar MUY seguro, son de los documentos más importantes que tendrás en tu vida. Saca varias copias certificadas con el notario y guárdalas en diferentes lugares.",
+      "tiempo_estimado": "2-8 semanas",
+      "consejos": [
+        "El notario te avisa cuando el registro esté completo, ten paciencia",
+        "Cuando te entreguen las escrituras finales, revísalas bien",
+        "Guarda tus escrituras en una caja fuerte o lugar muy seguro",
+        "Saca al menos 3 copias certificadas y guárdalas en lugares diferentes",
+        "Puedes dejar una copia con un familiar de confianza",
+        "Si pierdes tus escrituras, puedes sacar copias con el notario pero cuesta dinero",
+        "Actualiza tu comprobante de domicilio con recibos de servicios a tu nombre"
+      ],
+      "documentos_requeridos": []
+    }
+  ],
+  "checklist_completo": {
+    "documentos_obligatorios": [
+      "Identificación oficial vigente (comprador y vendedor)",
+      "RFC del comprador y vendedor",
+      "CURP del comprador y vendedor",
+      "Comprobante de domicilio del comprador",
+      "Escrituras actuales de la propiedad",
+      "Certificado de libertad de gravámenes (reciente)",
+      "Dinero para el enganche o pago total de la casa",
+      "Dinero para gastos notariales e impuestos (8%-15% del valor)",
+      "Recibos de predial pagados (del vendedor)",
+      "Recibos de servicios pagados (del vendedor)"
+    ],
+    "documentos_opcionales": [
+      "Avalúo de la propiedad",
+      "Planos de construcción",
+      "Licencia de construcción",
+      "Recibos de mantenimiento si es condominio",
+      "Carta del banco si hay hipoteca"
+    ],
+    "recomendaciones_generales": [
+      "Comprar una casa es una decisión muy importante, tómate tu tiempo",
+      "Siempre revisa que la propiedad esté libre de problemas antes de comprar",
+      "El notario es tu aliado, pregúntale todas tus dudas",
+      "Los gastos notariales e impuestos son adicionales al precio de la casa",
+      "Si compras con crédito hipotecario, el banco revisa todo muy bien",
+      "Las escrituras son el documento MÁS importante, guárdalas como oro",
+      "Paga siempre tu predial a tiempo para evitar multas y recargos",
+      "Si compras con tu pareja, pueden estar los dos en las escrituras",
+      "Puedes heredar tu propiedad haciendo un testamento",
+      "Tener una casa es un gran logro, ¡disfrútala y cuídala!"
+    ]
+  }
+}

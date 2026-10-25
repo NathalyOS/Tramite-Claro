@@ -1,0 +1,227 @@
+{
+  "id": "residencia-temporal-mexico",
+  "nombre": "Residencia Temporal en México para Extranjeros",
+  "categoria": "Internacional",
+  "duracion_estimada": "2-4 semanas",
+  "dificultad": "alta",
+  "costo_aproximado": "$4,000 - $5,000 MXN",
+  "descripcion_simple": "La residencia temporal es un permiso especial que le da el gobierno mexicano a personas de otros países para que puedan vivir en México por más tiempo que como turistas. Es como un documento oficial que dice: 'Esta persona puede quedarse a vivir en México por 1, 2, 3 o 4 años'.",
+  "pasos": [
+    {
+      "numero": 1,
+      "titulo": "Verificar si cumples los requisitos",
+      "descripcion": "Para poder pedir residencia temporal en México necesitas cumplir con al menos uno de estos requisitos: tener un familiar directo que sea mexicano o residente en México (esposo/esposa, papá, mamá, hijo), tener una oferta de trabajo de una empresa mexicana, tener ingresos suficientes (ganar al menos 400 días de salario mínimo al mes, que son como $40,000 pesos mensuales), o tener dinero ahorrado en el banco (al menos $80,000 dólares en los últimos 12 meses). También puedes obtenerla si estás estudiando en una universidad mexicana. Si no cumples ninguno de estos requisitos, no puedes pedir la residencia temporal.",
+      "tiempo_estimado": "1 día para verificar",
+      "consejos": [
+        "Revisa bien que cumplas al menos uno de los requisitos antes de empezar",
+        "Si tienes pareja mexicana, ese es el camino más fácil",
+        "Si trabajas, pide a tu empleador una carta de oferta de trabajo",
+        "Si tienes dinero ahorrado, pide estados de cuenta de los últimos 12 meses",
+        "Los requisitos pueden cambiar, revisa la página del INM (Instituto Nacional de Migración)",
+        "Si no cumples los requisitos, no gastes dinero en el trámite"
+      ],
+      "documentos_requeridos": []
+    },
+    {
+      "numero": 2,
+      "titulo": "Hacer cita en el consulado mexicano de tu país",
+      "descripcion": "Si estás fuera de México, debes empezar el trámite en un consulado mexicano en tu país de origen. Si estás en México con visa de turista, puedes hacer el cambio aquí. Para hacer cita en el consulado, entras a su página de internet y buscas la sección de 'Residencias' o 'Visas'. Cada consulado tiene su propio sistema de citas. Llenas un formulario en línea con tus datos y escoges el día y hora que te acomoden. Te mandan un correo confirmando tu cita. Las citas pueden tardar semanas o meses en estar disponibles, así que agenda con tiempo. El día de tu cita llevas todos tus documentos. El cónsul los revisa y si todo está bien, te aprueban una 'visa de residente temporal'.",
+      "tiempo_estimado": "2-6 semanas para conseguir cita",
+      "consejos": [
+        "Agenda tu cita lo antes posible, las fechas se llenan rápido",
+        "Lee muy bien qué documentos pide el consulado, cada uno puede pedir cosas diferentes",
+        "Prepara TODOS los documentos antes de tu cita",
+        "Si no hablas español, algunos consulados tienen personal que habla otros idiomas",
+        "Llega 15 minutos antes de tu cita",
+        "Si te niegan la visa, te dicen por qué y puedes volver a intentar"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Pasaporte vigente",
+          "tipo": "original",
+          "descripcion": "Tu pasaporte de tu país. Debe estar vigente y tener al menos 6 meses de validez. Debe tener páginas en blanco para los sellos.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Mínimo 6 meses de vigencia",
+          "ejemplos": ["Pasaporte vigente"]
+        },
+        {
+          "nombre": "Fotografías tamaño pasaporte",
+          "tipo": "original",
+          "descripcion": "Fotos recientes tuyas con fondo blanco. Normalmente piden 2 o 4 fotos. Deben ser profesionales, no selfies.",
+          "obligatorio": true,
+          "cantidad": 4,
+          "vigencia": "Recientes (no mayores a 6 meses)",
+          "ejemplos": ["Fotos 3.5 x 4.5 cm con fondo blanco"]
+        },
+        {
+          "nombre": "Comprobantes de solvencia económica",
+          "tipo": "original",
+          "descripcion": "Papeles que demuestren que tienes dinero suficiente para vivir en México. Pueden ser estados de cuenta bancarios de los últimos 12 meses, carta de tu trabajo con tu salario, o certificados de inversiones. Depende del requisito que cumplas.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Últimos 12 meses",
+          "ejemplos": ["Estados de cuenta, Carta de trabajo, Comprobantes de ingresos"]
+        },
+        {
+          "nombre": "Acta de nacimiento o matrimonio",
+          "tipo": "original",
+          "descripcion": "Si pides la residencia por vínculo familiar, necesitas el acta que demuestre tu parentesco: acta de matrimonio si tu pareja es mexicana, acta de nacimiento si tus papás son mexicanos, etc. Debe estar apostillada si es de otro país.",
+          "obligatorio": false,
+          "cantidad": 1,
+          "vigencia": "Debe estar apostillada",
+          "ejemplos": ["Acta de matrimonio apostillada, Acta de nacimiento apostillada"]
+        },
+        {
+          "nombre": "Carta de oferta de trabajo",
+          "tipo": "original",
+          "descripcion": "Si pides la residencia por trabajo, la empresa mexicana que te va a contratar debe darte una carta oficial ofreciéndote el puesto. Debe estar en papel membretado de la empresa con todos los datos.",
+          "obligatorio": false,
+          "cantidad": 1,
+          "vigencia": "Reciente",
+          "ejemplos": ["Carta de oferta laboral en papel membretado"]
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Entrar a México con tu visa de residente temporal",
+      "descripcion": "Si te aprobaron la visa en el consulado, te ponen un sello o sticker en tu pasaporte que dice 'Residente Temporal - Pendiente de canje'. Este sello es válido por 180 días (6 meses) para entrar a México. Cuando llegues a México en el aeropuerto o frontera, le muestras tu pasaporte con el sello al oficial de migración. Él te deja pasar y te da una Forma Migratoria Múltiple (FMM) que debes guardar. Desde que entras a México tienes 30 días naturales (no hábiles) para ir a una oficina del INM (Instituto Nacional de Migración) a canjear tu visa por tu tarjeta de residencia.",
+      "tiempo_estimado": "1 día (el día que llegas)",
+      "consejos": [
+        "No pierdas tu Forma Migratoria Múltiple (FMM), la necesitas para el siguiente paso",
+        "Cuenta bien los 30 días, son naturales, incluyen sábados y domingos",
+        "Si no canjeas tu visa en 30 días, pierdes tu residencia y tienes que empezar de nuevo",
+        "Guarda tu pasaporte con el sello de visa en un lugar seguro",
+        "Toma fotos de todos tus documentos de migración por si los pierdes"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Pasaporte con visa de residente temporal",
+          "tipo": "original",
+          "descripcion": "Tu pasaporte con el sello o sticker que te pusieron en el consulado.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Visa válida por 180 días",
+          "ejemplos": ["Pasaporte con sello de visa temporal"]
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Canjear tu visa por la tarjeta de residencia",
+      "descripcion": "Dentro de los 30 días después de entrar a México, debes ir a una oficina del INM. Busca la oficina más cerca de donde estás viviendo en México (puedes buscar en Google Maps 'INM cerca de mí'). Llegas y pides hacer el 'canje de visa por tarjeta de residencia'. Te dan un formato que llenas con tus datos. Entregas todos tus documentos. Te toman foto y huellas digitales. Pagas una cuota (aproximadamente $4,000-$5,000 pesos). Te dan un comprobante de pago y una hoja que dice que tu trámite está en proceso. Te dicen que regreses en 15-20 días hábiles a recoger tu tarjeta. Mientras tanto, ese comprobante es tu permiso temporal para estar en México legal.",
+      "tiempo_estimado": "2-3 horas en el INM",
+      "consejos": [
+        "Llega muy temprano al INM, hay mucha gente",
+        "Lleva todos tus documentos ORIGINALES y copias",
+        "Lleva dinero en efectivo, algunos INM no aceptan tarjeta",
+        "Sé muy amable con el personal del INM, ellos deciden si aprueban tu trámite",
+        "Si te falta algún documento, te lo dicen y tienes que volver otro día",
+        "Guarda MUY bien tu comprobante de pago, sin él no te dan tu tarjeta"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Pasaporte original",
+          "tipo": "original",
+          "descripcion": "Tu pasaporte completo. Lo revisan para verificar el sello de visa.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Vigente",
+          "ejemplos": ["Pasaporte con visa"]
+        },
+        {
+          "nombre": "Forma Migratoria Múltiple (FMM)",
+          "tipo": "original",
+          "descripcion": "La forma que te dieron cuando entraste a México en el aeropuerto o frontera.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "La que te dieron al entrar",
+          "ejemplos": ["FMM original"]
+        },
+        {
+          "nombre": "Comprobante de domicilio en México",
+          "tipo": "original",
+          "descripcion": "Un recibo de luz, agua, teléfono o contrato de renta donde estás viviendo en México. Debe tener tu nombre o el de la persona con quien vives.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "No mayor a 3 meses",
+          "ejemplos": ["Recibo de CFE, agua, contrato de renta"]
+        },
+        {
+          "nombre": "Pago de derechos",
+          "tipo": "original",
+          "descripcion": "El dinero para pagar tu tarjeta de residencia. Son aproximadamente $4,000-$5,000 pesos. Puedes pagar en el banco antes de ir al INM o en el mismo INM si tienen caja.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Efectivo, Tarjeta de débito/crédito"]
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "titulo": "Recoger tu tarjeta de residencia temporal",
+      "descripcion": "Después de 15-20 días hábiles, regresas a la misma oficina del INM donde hiciste el trámite. Llevas tu comprobante de pago y tu identificación. En la ventanilla de 'Entrega de tarjetas' presentas tus documentos. Te entregan tu tarjeta de residencia temporal. Es una tarjeta de plástico como del tamaño de una tarjeta de crédito. Tiene tu foto, tu nombre, tu nacionalidad, tu número de trámite (llamado NUT o CURP temporal), y la fecha de vencimiento. Esta tarjeta normalmente dura 1 año la primera vez, luego puedes renovarla por 2, 3 o 4 años más. Con esta tarjeta puedes vivir legalmente en México, trabajar (si tienes permiso de trabajo), estudiar, abrir cuentas de banco, y viajar dentro del país.",
+      "tiempo_estimado": "30 minutos para recoger",
+      "consejos": [
+        "Revisa muy bien que todos tus datos estén correctos en la tarjeta",
+        "Si hay algún error en tu nombre o fecha, repórtalo inmediatamente",
+        "Tu tarjeta es tu identificación oficial en México, cuídala mucho",
+        "Saca copias de tu tarjeta y guárdalas en diferentes lugares",
+        "Pon una alarma 60 días antes de que venza tu tarjeta para renovarla a tiempo",
+        "Si pierdes tu tarjeta, puedes sacar un duplicado pero cuesta dinero"
+      ],
+      "documentos_requeridos": [
+        {
+          "nombre": "Comprobante de trámite",
+          "tipo": "original",
+          "descripcion": "El papel que te dieron cuando pagaste tu tarjeta. Sin este comprobante no te la entregan.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "N/A",
+          "ejemplos": ["Comprobante de pago INM"]
+        },
+        {
+          "nombre": "Identificación",
+          "tipo": "original",
+          "descripcion": "Tu pasaporte u otra identificación oficial para verificar que eres tú.",
+          "obligatorio": true,
+          "cantidad": 1,
+          "vigencia": "Vigente",
+          "ejemplos": ["Pasaporte"]
+        }
+      ]
+    }
+  ],
+  "checklist_completo": {
+    "documentos_obligatorios": [
+      "Pasaporte vigente (mínimo 6 meses)",
+      "Fotografías tamaño pasaporte con fondo blanco (4 fotos)",
+      "Comprobantes de solvencia económica (últimos 12 meses)",
+      "Forma Migratoria Múltiple (FMM) al entrar a México",
+      "Comprobante de domicilio en México (no mayor a 3 meses)",
+      "Dinero para pago de tarjeta ($4,000-$5,000 MXN)",
+      "Comprobante de trámite para recoger tarjeta"
+    ],
+    "documentos_opcionales": [
+      "Acta de matrimonio apostillada (si aplicas por vínculo familiar)",
+      "Acta de nacimiento apostillada (si aplicas por vínculo familiar)",
+      "Carta de oferta de trabajo (si aplicas por empleo)",
+      "Constancia de estudios (si eres estudiante)",
+      "RFC mexicano (si ya tienes)"
+    ],
+    "recomendaciones_generales": [
+      "El trámite completo desde el consulado hasta recibir tu tarjeta puede tardar 2-4 meses",
+      "Es MUY importante hacer el canje en los primeros 30 días de llegar a México",
+      "Con residencia temporal puedes trabajar legalmente si tu tarjeta dice 'Con permiso para trabajar'",
+      "Debes renovar tu residencia antes de que venza, no la dejes vencer",
+      "Puedes salir y entrar a México libremente con tu tarjeta de residencia",
+      "Después de 4 años de residencia temporal puedes pedir residencia permanente",
+      "Vivir en México sin documentos migratorios es ilegal y te pueden deportar",
+      "El INM a veces hace cambios en los requisitos, siempre verifica en su página oficial",
+      "Guarda copias de TODOS tus documentos migratorios",
+      "Si tienes problemas con tu trámite, puedes contratar a un abogado migratorio"
+    ]
+  }
+}
