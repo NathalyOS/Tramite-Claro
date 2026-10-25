@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de lugares</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <div class="container">
+      <span class="navbar-brand fw-semibold">
+        <i class="bi bi-building me-1"></i>
+        Trámite Claro
+      </span>
+      <span class="badge text-bg-light text-info">Datos</span>
+    </div>
+  </nav>
+
+  <header class="container py-4">
+    <h1 class="h2 text-info">Catálogo de lugares</h1>
+    <p class="text-secondary mb-0">Capa de datos. No forma parte del recorrido. Cada lugar pertenece a un trámite, un estado y un municipio. Los identificadores coinciden con datos/lugares.js, que es el que usa la vista.</p>
+  </header>
+
+  <main class="container pb-5">
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <article class="card h-100 border-primary" id="visa-centro" data-tramite="visa" data-estado="ciudad-de-mexico" data-municipio="Cuauhtémoc">
+          <div class="card-header bg-primary text-white">Módulo de visas Centro</div>
+          <div class="card-body">
+            <p class="card-text"><span class="badge text-bg-primary">Dirección</span> Av. Juárez 52, Centro, Cuauhtémoc, 06010 Ciudad de México</p>
+            <p class="card-text"><span class="badge text-bg-success">Horario</span> Lunes a viernes, 9:00 a 15:00</p>
+            <p class="card-text"><span class="badge text-bg-warning">Referencia</span> A una cuadra del Metro Juárez. Camina por Av. Juárez hacia el oriente; el módulo está frente a la Alameda.</p>
+            <p class="card-text"><span class="badge text-bg-info">Teléfono</span> 55 5208 1400</p>
+            <p class="card-text mb-0"><span class="badge text-bg-danger">Correo</span> visas.centro@tramiteclaro.mx</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <article class="card h-100 border-primary" id="visa-juarez" data-tramite="visa" data-estado="ciudad-de-mexico" data-municipio="Cuauhtémoc">
+          <div class="card-header bg-primary text-white">Módulo de visas Juárez</div>
+          <div class="card-body">
+            <p class="card-text"><span class="badge text-bg-primary">Dirección</span> Calle Luis Moya 15, Colonia Juárez, Cuauhtémoc, 06600 Ciudad de México</p>
+            <p class="card-text"><span class="badge text-bg-success">Horario</span> Lunes a viernes, 8:30 a 14:30</p>
+            <p class="card-text"><span class="badge text-bg-warning">Referencia</span> A dos calles del Metro Hidalgo, sobre Luis Moya, entre Atenas y Marsella.</p>
+            <p class="card-text mb-0"><span class="badge text-bg-info">Teléfono</span> 55 5514 2208</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <article class="card h-100 border-primary" id="visa-guadalajara" data-tramite="visa" data-estado="jalisco" data-municipio="Guadalajara">
+          <div class="card-header bg-primary text-white">Oficina de visas Guadalajara</div>
+          <div class="card-body">
+            <p class="card-text"><span class="badge text-bg-primary">Dirección</span> Av. López Mateos Sur 2077, Americana, Guadalajara, 44160 Jalisco</p>
+            <p class="card-text"><span class="badge text-bg-success">Horario</span> Lunes a viernes, 9:00 a 14:00</p>
+            <p class="card-text"><span class="badge text-bg-warning">Referencia</span> Sobre López Mateos Sur, a la altura de la Americana. El acceso peatonal está junto a la plaza.</p>
+            <p class="card-text mb-0"><span class="badge text-bg-danger">Correo</span> visas.gdl@tramiteclaro.mx</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <article class="card h-100 border-success" id="pasaporte-monterrey" data-tramite="pasaporte" data-estado="nuevo-leon" data-municipio="Monterrey">
+          <div class="card-header bg-success text-white">Oficina de pasaportes Monterrey</div>
+          <div class="card-body">
+            <p class="card-text"><span class="badge text-bg-primary">Dirección</span> Av. Constitución 1000, Centro, Monterrey, 64000 Nuevo León</p>
+            <p class="card-text"><span class="badge text-bg-success">Horario</span> Lunes a viernes, 8:00 a 15:00</p>
+            <p class="card-text"><span class="badge text-bg-warning">Referencia</span> En el Centro, a tres cuadras de la Macroplaza. Baja en la estación Zaragoza y camina hacia el norte.</p>
+            <p class="card-text"><span class="badge text-bg-info">Teléfono</span> 81 8150 3300</p>
+            <p class="card-text mb-0"><span class="badge text-bg-danger">Correo</span> pasaportes.mty@tramiteclaro.mx</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <article class="card h-100 border-success" id="pasaporte-merida" data-tramite="pasaporte" data-estado="yucatan" data-municipio="Mérida">
+          <div class="card-header bg-success text-white">Oficina de pasaportes Mérida</div>
+          <div class="card-body">
+            <p class="card-text"><span class="badge text-bg-primary">Dirección</span> Calle 60 núm. 498, Centro, Mérida, 97000 Yucatán</p>
+            <p class="card-text"><span class="badge text-bg-success">Horario</span> Lunes a viernes, 9:00 a 14:00</p>
+            <p class="card-text"><span class="badge text-bg-warning">Referencia</span> Sobre la calle 60, entre 59 y 61, a dos cuadras del pasaje del Teatro Peón Contreras.</p>
+            <p class="card-text mb-0"><span class="badge text-bg-info">Teléfono</span> 999 930 1100</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <article class="card h-100 border-info" id="cambio-toluca" data-tramite="cambio-propietario" data-estado="mexico" data-municipio="Toluca">
+          <div class="card-header bg-info text-white">Módulo vehicular Toluca</div>
+          <div class="card-body">
+            <p class="card-text"><span class="badge text-bg-primary">Dirección</span> Paseo Tollocan 800, Santa Ana Tlapaltitlán, Toluca, 50160 México</p>
+            <p class="card-text"><span class="badge text-bg-success">Horario</span> Lunes a viernes, 9:00 a 16:00. Sábados, 9:00 a 13:00</p>
+            <p class="card-text"><span class="badge text-bg-warning">Referencia</span> Sobre Paseo Tollocan, en dirección a la terminal. El módulo está después del retorno de Santa Ana.</p>
+            <p class="card-text"><span class="badge text-bg-info">Teléfono</span> 722 276 1900</p>
+            <p class="card-text mb-0"><span class="badge text-bg-danger">Correo</span> vehicular.toluca@tramiteclaro.mx</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <article class="card h-100 border-info" id="cambio-puebla" data-tramite="cambio-propietario" data-estado="puebla" data-municipio="Puebla">
+          <div class="card-header bg-info text-white">Control vehicular Angelópolis</div>
+          <div class="card-body">
+            <p class="card-text"><span class="badge text-bg-primary">Dirección</span> Blvd. del Niño Poblano 2510, Reserva Territorial Atlixcáyotl, Puebla, 72810 Puebla</p>
+            <p class="card-text"><span class="badge text-bg-success">Horario</span> Lunes a viernes, 8:30 a 15:30</p>
+            <p class="card-text mb-0"><span class="badge text-bg-warning">Referencia</span> En la zona de Angelópolis, a un costado del centro comercial. Entra por el estacionamiento norte.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <article class="card h-100 border-warning" id="apostilla-centro" data-tramite="apostilla" data-estado="ciudad-de-mexico" data-municipio="Cuauhtémoc">
+          <div class="card-header bg-warning">Oficina de apostillas Centro</div>
+          <div class="card-body">
+            <p class="card-text"><span class="badge text-bg-primary">Dirección</span> República de Cuba 60, Centro, Cuauhtémoc, 06010 Ciudad de México</p>
+            <p class="card-text"><span class="badge text-bg-success">Horario</span> Lunes a viernes, 9:00 a 14:00</p>
+            <p class="card-text"><span class="badge text-bg-warning">Referencia</span> Cerca del Metro Allende. Camina por República de Cuba hacia el oriente; la oficina tiene acceso por la planta baja.</p>
+            <p class="card-text mb-0"><span class="badge text-bg-danger">Correo</span> apostilla.centro@tramiteclaro.mx</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <article class="card h-100 border-warning" id="apostilla-queretaro" data-tramite="apostilla" data-estado="queretaro" data-municipio="Querétaro">
+          <div class="card-header bg-warning">Módulo de apostilla Querétaro</div>
+          <div class="card-body">
+            <p class="card-text"><span class="badge text-bg-primary">Dirección</span> Av. 5 de Febrero 36, Centro, Querétaro, 76000 Querétaro</p>
+            <p class="card-text"><span class="badge text-bg-success">Horario</span> Lunes a viernes, 9:00 a 15:00</p>
+            <p class="card-text"><span class="badge text-bg-warning">Referencia</span> En el Centro histórico, a una cuadra del jardín Zenea, sobre 5 de Febrero rumbo al sur.</p>
+            <p class="card-text"><span class="badge text-bg-info">Teléfono</span> 442 227 1800</p>
+            <p class="card-text mb-0"><span class="badge text-bg-danger">Correo</span> apostilla.qro@tramiteclaro.mx</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <article class="card h-100 border-danger" id="residencia-tijuana" data-tramite="residencia-temporal" data-estado="baja-california" data-municipio="Tijuana">
+          <div class="card-header bg-danger text-white">Oficina de residencia Tijuana</div>
+          <div class="card-body">
+            <p class="card-text"><span class="badge text-bg-primary">Dirección</span> Av. Paseo de los Héroes 10289, Zona Río, Tijuana, 22010 Baja California</p>
+            <p class="card-text"><span class="badge text-bg-success">Horario</span> Lunes a viernes, 8:00 a 14:00</p>
+            <p class="card-text"><span class="badge text-bg-warning">Referencia</span> En la Zona Río, frente al centro comercial. Desde la estación del Río, camina dos cuadras al poniente.</p>
+            <p class="card-text mb-0"><span class="badge text-bg-info">Teléfono</span> 664 634 2500</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <article class="card h-100 border-danger" id="residencia-cancun" data-tramite="residencia-temporal" data-estado="quintana-roo" data-municipio="Benito Juárez">
+          <div class="card-header bg-danger text-white">Oficina de residencia Cancún</div>
+          <div class="card-body">
+            <p class="card-text"><span class="badge text-bg-primary">Dirección</span> Av. Náder 1, Supermanzana 5, Cancún, Benito Juárez, 77500 Quintana Roo</p>
+            <p class="card-text"><span class="badge text-bg-success">Horario</span> Lunes a viernes, 9:00 a 13:00</p>
+            <p class="card-text"><span class="badge text-bg-warning">Referencia</span> En el centro de Cancún, sobre Av. Náder, a una cuadra del parque de las Palapas.</p>
+            <p class="card-text"><span class="badge text-bg-info">Teléfono</span> 998 884 1400</p>
+            <p class="card-text mb-0"><span class="badge text-bg-danger">Correo</span> residencia.cancun@tramiteclaro.mx</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

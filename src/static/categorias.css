@@ -1,0 +1,79 @@
+/* Estado de la vista (radios/checkbox). El aspecto lo define Bootstrap. */
+
+body:has(#visa:checked) label[for="visa"],
+body:has(#pasaporte:checked) label[for="pasaporte"],
+body:has(#cambio-propietario:checked) label[for="cambio-propietario"],
+body:has(#apostilla:checked) label[for="apostilla"],
+body:has(#residencia-temporal:checked) label[for="residencia-temporal"] {
+  background-color: var(--bs-success-bg-subtle);
+  color: var(--bs-success-text-emphasis);
+  border-color: var(--bs-success-border-subtle);
+}
+
+.ficha,
+.instruccion {
+  display: none;
+}
+
+body:has(.estado-tramite:checked) .ficha-vacia {
+  display: none;
+}
+
+body:has(#visa:checked) .ficha-visa,
+body:has(#pasaporte:checked) .ficha-pasaporte,
+body:has(#cambio-propietario:checked) .ficha-cambio-propietario,
+body:has(#apostilla:checked) .ficha-apostilla,
+body:has(#residencia-temporal:checked) .ficha-residencia-temporal,
+body:has(#visa:checked) .instruccion-visa,
+body:has(#pasaporte:checked) .instruccion-pasaporte,
+body:has(#cambio-propietario:checked) .instruccion-cambio-propietario,
+body:has(#apostilla:checked) .instruccion-apostilla,
+body:has(#residencia-temporal:checked) .instruccion-residencia-temporal {
+  display: block;
+}
+
+.resultados {
+  display: none;
+}
+
+.busqueda:focus-within .resultados,
+.busqueda:hover .resultados {
+  display: block;
+}
+
+.sin-resultados {
+  display: none;
+}
+
+.resultados:not(:has(.opcion:not([hidden]))) .sin-resultados {
+  display: block;
+}
+
+.boton-confirmar {
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+body:has(.estado-tramite:checked) .boton-confirmar {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.ventana {
+  display: none;
+}
+
+body:has(.estado-tramite:checked):has(#abrir-confirmacion:checked) .ventana {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ventana-fondo {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
