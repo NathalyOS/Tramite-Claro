@@ -1,28 +1,9 @@
-"""
-Módulo de conexión a la base de datos MySQL para Trámite Claro.
-Basado en el patrón del ejemplo en example/python-flask-mysql/src/conexion.py
-"""
-
 import mysql.connector
 from mysql.connector import Error
 import os
 
 def obtener_conexion():
-    """
-    Crea y retorna una conexión a la base de datos MySQL.
-    
-    Returns:
-        mysql.connector.connection: Objeto de conexión a MySQL, o None si falla.
-    
-    Ejemplo de uso:
-        conexion = obtener_conexion()
-        if conexion:
-            cursor = conexion.cursor()
-            cursor.execute("SELECT * FROM tramites")
-            resultados = cursor.fetchall()
-            cursor.close()
-            conexion.close()
-    """
+ 
     try:
         # Configuración de la conexión
         # IMPORTANTE: Actualiza estos valores según tu configuración local
@@ -30,7 +11,7 @@ def obtener_conexion():
             host=os.getenv('DB_HOST', 'localhost'),
             port=int(os.getenv('DB_PORT', 3306)),
             user=os.getenv('DB_USER', 'root'),
-            password=os.getenv('DB_PASSWORD', ''),  # Configura tu contraseña aquí o en variable de entorno
+            password=os.getenv('DB_PASSWORD', '12345678'),
             database=os.getenv('DB_NAME', 'tramite_claro'),
             charset='utf8mb4',
             collation='utf8mb4_0900_ai_ci'
@@ -49,12 +30,6 @@ def obtener_conexion():
         return None
 
 def cerrar_conexion(conexion):
-    """
-    Cierra una conexión a MySQL de forma segura.
-    
-    Args:
-        conexion: Objeto de conexión a cerrar
-    """
     if conexion and conexion.is_connected():
         conexion.close()
         print("✓ Conexión cerrada correctamente")

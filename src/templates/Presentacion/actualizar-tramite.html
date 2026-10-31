@@ -1,0 +1,186 @@
+<!---4.2 ACTUALIZACIONES Y 5.3 DIFICULTAD-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualizar trámite - Trámite Claro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="{{ url_for('home') }}">
+        <i class="bi bi-journal-check me-1"></i>
+        Trámite Claro
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('categorias') }}">Trámites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('crear_categoria') }}">Crear categoría</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{ url_for('actualizar_tramite') }}">Actualizar trámite</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('guia_tramite') }}">Guía de trámite</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="card shadow-sm border-success">
+          <div class="card-header bg-success text-white">
+            <h1 class="h4 mb-0">Actualización del trámite</h1>
+          </div>
+          <div class="card-body p-4">
+            <div class="text-center mb-4">
+              <img
+                src="{{ url_for('static', filename='Logo de Trámite Claro.png') }}"
+                alt="Trámite Claro Logo"
+                class="img-fluid logo"
+              >
+            </div>
+            <h2 class="h5 text-success mb-3">Marcar actualización, dificultad y tiempo</h2>
+            <div id="aviso-actualizacion" class="alert mb-3" hidden></div>
+            <form id="form-actualizar-tramite">
+              <div class="mb-3">
+                <label class="form-label" for="tramite-actualizar">Trámite</label>
+                <select class="form-select" id="tramite-actualizar" required>
+                  <option value="">Elige un trámite</option>
+                  {% for tramite in tramites %}
+                  <option value="{{ tramite.id }}">{{ tramite.nombre }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="estado-actualizacion">Estado de la guía</label>
+                <select class="form-select" id="estado-actualizacion">
+                  <option value="">Sin marca</option>
+                  <option value="actualizado">Actualizado</option>
+                  <option value="desactualizado">Desactualizado</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="mensaje-cambio">Mensaje del cambio</label>
+                <textarea class="form-control" id="mensaje-cambio" rows="3" maxlength="500" placeholder="Qué cambió, con las palabras de la página oficial"></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="fecha-actualizacion">Fecha de última actualización</label>
+                <input class="form-control" type="date" id="fecha-actualizacion">
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="dificultad-tramite">Dificultad</label>
+                <select class="form-select" id="dificultad-tramite">
+                  <option value="">Sin dato publicado</option>
+                  <option value="baja">Baja</option>
+                  <option value="media">Media</option>
+                  <option value="alta">Alta</option>
+                </select>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label" for="tiempo-tramite">Tiempo estimado</label>
+                <input class="form-control" type="text" id="tiempo-tramite" maxlength="100" placeholder="Como lo publica la página oficial">
+              </div>
+
+              <div class="d-flex flex-wrap gap-2">
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <a class="btn btn-outline-danger" href="{{ url_for('home') }}">Cancelar</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script id="datos-tramites" type="application/json">{{ tramites|tojson }}</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const tramites = JSON.parse(document.querySelector("#datos-tramites").textContent);
+    const formulario = document.querySelector("#form-actualizar-tramite");
+    const aviso = document.querySelector("#aviso-actualizacion");
+    const selector = document.querySelector("#tramite-actualizar");
+    const estado = document.querySelector("#estado-actualizacion");
+    const mensaje = document.querySelector("#mensaje-cambio");
+    const fecha = document.querySelector("#fecha-actualizacion");
+    const dificultad = document.querySelector("#dificultad-tramite");
+    const tiempo = document.querySelector("#tiempo-tramite");
+
+    function mostrarAviso(esError, texto) {
+      aviso.hidden = false;
+      aviso.className = esError ? "alert alert-danger mb-3" : "alert alert-success mb-3";
+      aviso.textContent = texto;
+    }
+
+    selector.addEventListener("change", () => {
+      const tramite = tramites.find((item) => String(item.id) === selector.value);
+      if (!tramite) {
+        estado.value = "";
+        mensaje.value = "";
+        fecha.value = "";
+        dificultad.value = "";
+        tiempo.value = "";
+        return;
+      }
+      estado.value = tramite.estado_actualizacion || "";
+      mensaje.value = tramite.mensaje_cambio || "";
+      fecha.value = tramite.fecha_iso || "";
+      dificultad.value = tramite.dificultad || "";
+      tiempo.value = tramite.duracion_estimada || "";
+    });
+
+    formulario.addEventListener("submit", (evento) => {
+      evento.preventDefault();
+      if (!selector.value) {
+        mostrarAviso(true, "Elige un trámite.");
+        return;
+      }
+      fetch(window.location.pathname, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          tramite_id: selector.value,
+          estado: estado.value,
+          mensaje: mensaje.value.trim(),
+          fecha: fecha.value,
+          dificultad: dificultad.value,
+          duracion: tiempo.value.trim(),
+        }),
+      }).then(async (respuesta) => {
+        const datos = await respuesta.json();
+        if (!respuesta.ok) {
+          mostrarAviso(true, datos.error || "No se pudo guardar.");
+          return;
+        }
+        const tramite = tramites.find((item) => String(item.id) === selector.value);
+        if (tramite) {
+          tramite.estado_actualizacion = estado.value;
+          tramite.mensaje_cambio = mensaje.value.trim();
+          tramite.fecha_iso = fecha.value;
+          tramite.dificultad = dificultad.value;
+          tramite.duracion_estimada = tiempo.value.trim();
+        }
+        mostrarAviso(false, "Cambios guardados. Ya se ven en el trámite y en su guía.");
+      });
+    });
+  </script>
+</body>
+</html>

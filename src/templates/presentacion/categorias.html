@@ -1,3 +1,4 @@
+<!---1.1 CONFIRMAR INFORMACION-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,13 +10,25 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='categorias.css') }}">
 </head>
 <body class="bg-light">
-  <!-- Vista de presentación. Identificadores alineados con datos/catalogo-tramites.html. Reglas en negocio/flujo-confirmacion.html. -->
   <div class="estados visually-hidden">
-    <input class="estado-tramite" type="radio" name="tramite" id="visa">
-    <input class="estado-tramite" type="radio" name="tramite" id="pasaporte">
-    <input class="estado-tramite" type="radio" name="tramite" id="cambio-propietario">
-    <input class="estado-tramite" type="radio" name="tramite" id="apostilla">
-    <input class="estado-tramite" type="radio" name="tramite" id="residencia-temporal">
+    {% for tramite in tramites %}
+    <input
+      class="estado-tramite"
+      type="radio"
+      name="tramite"
+      id="tramite-{{ tramite.id }}"
+      data-nombre="{{ tramite.nombre }}"
+      data-categoria="{{ tramite.categoria }}"
+      data-descripcion="{{ tramite.descripcion_simple }}"
+      data-color="{{ tramite.color }}"
+      data-fecha="{{ tramite.fecha_texto }}"
+      data-mensaje="{{ tramite.mensaje_cambio }}"
+      data-estado-actualizacion="{{ tramite.estado_actualizacion }}"
+      data-duracion="{{ tramite.duracion_estimada }}"
+      data-dificultad="{{ tramite.dificultad_texto }}"
+      data-color-dificultad="{{ tramite.color_dificultad }}"
+    >
+    {% endfor %}
     <input class="estado-modal" type="checkbox" id="abrir-confirmacion">
   </div>
 
@@ -35,6 +48,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('crear_categoria') }}">Crear categoría</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('actualizar_tramite') }}">Actualizar trámite</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('guia_tramite') }}">Guía de trámite</a>
@@ -58,26 +74,25 @@
           </div>
           <div class="card-body p-0">
             <div class="list-group list-group-flush">
-              <label class="list-group-item list-group-item-action d-flex justify-content-between align-items-center opcion" for="visa">
-                Visa
-                <span class="badge text-bg-primary">Visa</span>
-              </label>
-              <label class="list-group-item list-group-item-action d-flex justify-content-between align-items-center opcion" for="pasaporte">
-                Pasaporte
-                <span class="badge text-bg-success">Pasaporte</span>
-              </label>
-              <label class="list-group-item list-group-item-action d-flex justify-content-between align-items-center opcion" for="cambio-propietario">
-                Cambio de propietario
-                <span class="badge text-bg-info">Vehicular</span>
-              </label>
-              <label class="list-group-item list-group-item-action d-flex justify-content-between align-items-center opcion" for="apostilla">
-                Apostilla
-                <span class="badge text-bg-warning">Apostilla</span>
-              </label>
-              <label class="list-group-item list-group-item-action d-flex justify-content-between align-items-center opcion" for="residencia-temporal">
-                Residencia temporal
-                <span class="badge text-bg-danger">Residencia</span>
-              </label>
+              {% if tramites %}
+              {% set frecuentes = [
+                "Acta de Nacimiento Certificada",
+                "Pasaporte Mexicano Primera Vez",
+                "Registro Federal de Contribuyentes (RFC) Persona Física",
+                "Licencia de Conducir por Primera Vez",
+                "Cambio de Propietario de Vehículo"
+              ] %}
+              {% for nombre_frecuente in frecuentes %}
+                {% for tramite in tramites if tramite.nombre == nombre_frecuente %}
+                <label class="list-group-item list-group-item-action d-flex justify-content-between align-items-center gap-2 opcion" for="tramite-{{ tramite.id }}">
+                  <span>{{ tramite.nombre }}</span>
+                  <span class="badge text-bg-{{ tramite.color }}">{{ tramite.categoria }}</span>
+                </label>
+                {% endfor %}
+              {% endfor %}
+              {% else %}
+              <p class="list-group-item text-secondary mb-0">No hay trámites guardados.</p>
+              {% endif %}
             </div>
           </div>
         </fieldset>
@@ -101,12 +116,16 @@
               >
             </div>
             <div class="resultados list-group mt-3 position-relative">
-              <label class="list-group-item list-group-item-action opcion" for="visa">Visa</label>
-              <label class="list-group-item list-group-item-action opcion" for="pasaporte">Pasaporte</label>
-              <label class="list-group-item list-group-item-action opcion" for="cambio-propietario">Cambio de propietario</label>
-              <label class="list-group-item list-group-item-action opcion" for="apostilla">Apostilla</label>
-              <label class="list-group-item list-group-item-action opcion" for="residencia-temporal">Residencia temporal</label>
-              <p class="sin-resultados list-group-item text-secondary mb-0">No hay trámites con ese nombre.</p>
+              {% for tramite in tramites %}
+              <label class="list-group-item list-group-item-action opcion" for="tramite-{{ tramite.id }}" data-categoria="{{ tramite.categoria }}" hidden>{{ tramite.nombre }}</label>
+              {% endfor %}
+              {% for categoria in categorias %}
+              <button class="list-group-item list-group-item-action opcion-categoria d-flex justify-content-between align-items-center" type="button" data-nombre="{{ categoria.nombre }}" hidden>
+                <span>{{ categoria.nombre }}</span>
+                <span class="badge text-bg-secondary">Categoría</span>
+              </button>
+              {% endfor %}
+              <p class="sin-resultados list-group-item text-secondary mb-0" hidden>No hay trámites con ese nombre.</p>
             </div>
           </div>
         </div>
@@ -116,34 +135,15 @@
           <div class="card-body">
             <p class="ficha-vacia alert alert-secondary mb-0">Busca un trámite o elige una búsqueda frecuente para ver su nombre y un resumen.</p>
 
-            <article class="ficha ficha-visa">
-              <h2 class="h4 text-primary">Visa</h2>
-              <p class="card-text">Solicitud según el país de destino: cita, formulario y documentos de soporte.</p>
-              <span class="badge text-bg-primary mb-3">Visa</span>
-            </article>
-
-            <article class="ficha ficha-pasaporte">
-              <h2 class="h4 text-success">Pasaporte</h2>
-              <p class="card-text">Primera vez o renovación: pago, cita, fotografía y recoger el documento.</p>
-              <span class="badge text-bg-success mb-3">Pasaporte</span>
-            </article>
-
-            <article class="ficha ficha-cambio-propietario">
-              <h2 class="h4 text-info">Cambio de propietario</h2>
-              <p class="card-text">Traspaso de un vehículo: contrato, baja del dueño anterior y alta del nuevo.</p>
-              <span class="badge text-bg-info mb-3">Vehicular</span>
-            </article>
-
-            <article class="ficha ficha-apostilla">
-              <h2 class="h4 text-warning">Apostilla</h2>
-              <p class="card-text">Legalización de un documento mexicano para usarlo en el extranjero.</p>
-              <span class="badge text-bg-warning mb-3">Apostilla</span>
-            </article>
-
-            <article class="ficha ficha-residencia-temporal">
-              <h2 class="h4 text-danger">Residencia temporal</h2>
-              <p class="card-text">Permiso para permanecer en el país más tiempo que como turista, con cita y expediente.</p>
-              <span class="badge text-bg-danger mb-3">Residencia</span>
+            <article class="ficha">
+              <h2 class="h4 text-primary" id="ficha-nombre"></h2>
+              <p class="card-text" id="ficha-descripcion"></p>
+              <span class="badge text-bg-secondary mb-3" id="ficha-categoria"></span>
+              <p class="mb-1" id="ficha-actualizacion" hidden></p>
+              <p class="mb-1" id="ficha-mensaje" hidden></p>
+              <p class="mb-2" id="ficha-tiempo" hidden></p>
+              <span class="badge mb-3" id="ficha-dificultad" hidden></span>
+              <p class="alert alert-warning" id="aviso-desactualizado" hidden>Puede haber cambios recientes</p>
             </article>
 
             <label class="btn btn-success boton-confirmar" for="abrir-confirmacion">
@@ -156,6 +156,9 @@
       <div class="col-12">
         <section class="lugares card border-danger" aria-labelledby="titulo-lugares">
           <div class="card-header bg-danger text-white">
+
+
+          <!---1.2 LUGARES DE TRAMITE-->
             <h2 class="h5 mb-0" id="titulo-lugares">Elige dónde asistir</h2>
           </div>
           <div class="card-body">
@@ -194,52 +197,288 @@
           <h2 class="modal-title fs-5" id="pregunta-confirmacion">¿Quieres confirmar para seguir con este trámite?</h2>
         </div>
         <div class="modal-body">
-          <div class="instruccion instruccion-visa">
-            <p class="fw-semibold text-primary mb-1">Visa</p>
-            <p class="mb-0">Revisa que sea el trámite correcto. Reúne el formulario, la cita y los documentos de soporte que pide el país de destino.</p>
-          </div>
-
-          <div class="instruccion instruccion-pasaporte">
-            <p class="fw-semibold text-success mb-1">Pasaporte</p>
-            <p class="mb-0">Revisa que sea el trámite correcto. Ten listos el pago, la cita y la fotografía para recoger el documento.</p>
-          </div>
-
-          <div class="instruccion instruccion-cambio-propietario">
-            <p class="fw-semibold text-info mb-1">Cambio de propietario</p>
-            <p class="mb-0">Revisa que sea el trámite correcto. Prepara el contrato, la baja del dueño anterior y lo necesario para el alta del nuevo.</p>
-          </div>
-
-          <div class="instruccion instruccion-apostilla">
-            <p class="fw-semibold text-warning mb-1">Apostilla</p>
-            <p class="mb-0">Revisa que sea el trámite correcto. Ten el documento mexicano que quieres legalizar para usarlo en el extranjero.</p>
-          </div>
-
-          <div class="instruccion instruccion-residencia-temporal">
-            <p class="fw-semibold text-danger mb-1">Residencia temporal</p>
-            <p class="mb-0">Revisa que sea el trámite correcto. Junta la cita y el expediente para permanecer más tiempo que como turista.</p>
+          <div class="instruccion">
+            <p class="fw-semibold text-primary mb-1" id="instruccion-nombre"></p>
+            <p class="mb-1"><span class="badge text-bg-secondary" id="instruccion-categoria"></span></p>
+            <p class="mb-0" id="instruccion-texto"></p>
+            <p class="mt-2 mb-0" id="instruccion-dificultad" hidden></p>
           </div>
         </div>
 
         <div class="modal-footer">
           <label class="btn btn-outline-danger" for="abrir-confirmacion">Cancelar</label>
-          <button class="btn btn-success" type="button">Confirmar</button>
+          <button class="btn btn-success" id="btn-confirmar" type="button" data-guia="{{ url_for('guia_tramite') }}">Confirmar</button>
         </div>
       </div>
     </div>
   </div>
 
+  <script id="datos-lugares" type="application/json">{{ lugares|tojson }}</script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const campoBusqueda = document.querySelector("#buscar");
     const opcionesBusqueda = document.querySelectorAll(".resultados .opcion");
+    const radios = document.querySelectorAll(".estado-tramite");
+    const fichaNombre = document.querySelector("#ficha-nombre");
+    const fichaDescripcion = document.querySelector("#ficha-descripcion");
+    const fichaCategoria = document.querySelector("#ficha-categoria");
+    const fichaActualizacion = document.querySelector("#ficha-actualizacion");
+    const fichaMensaje = document.querySelector("#ficha-mensaje");
+    const fichaTiempo = document.querySelector("#ficha-tiempo");
+    const fichaDificultad = document.querySelector("#ficha-dificultad");
+    const avisoDesactualizado = document.querySelector("#aviso-desactualizado");
+    const instruccionNombre = document.querySelector("#instruccion-nombre");
+    const instruccionCategoria = document.querySelector("#instruccion-categoria");
+    const instruccionTexto = document.querySelector("#instruccion-texto");
+    const instruccionDificultad = document.querySelector("#instruccion-dificultad");
+
+    function mostrarTramite(radio) {
+      document.querySelectorAll(".opcion").forEach((opcion) => {
+        opcion.classList.toggle("activa", opcion.getAttribute("for") === radio.id);
+      });
+
+      const nombre = radio.dataset.nombre || "";
+      const categoria = radio.dataset.categoria || "";
+      const descripcion = radio.dataset.descripcion || "";
+      const color = radio.dataset.color || "secondary";
+
+      fichaNombre.textContent = nombre;
+      fichaDescripcion.textContent = descripcion;
+      fichaCategoria.textContent = categoria;
+      fichaCategoria.className = "badge mb-3 text-bg-" + color;
+
+      instruccionNombre.textContent = nombre;
+      instruccionCategoria.textContent = categoria;
+      instruccionCategoria.className = "badge text-bg-" + color;
+      instruccionTexto.textContent = descripcion;
+      const dificultadInstruccion = radio.dataset.dificultad || "";
+      instruccionDificultad.hidden = !dificultadInstruccion;
+      instruccionDificultad.textContent = dificultadInstruccion ? "Dificultad: " + dificultadInstruccion : "";
+
+      const fecha = radio.dataset.fecha || "";
+      fichaActualizacion.hidden = !fecha;
+      fichaActualizacion.textContent = fecha ? "Última actualización: " + fecha : "";
+      const mensaje = radio.dataset.mensaje || "";
+      fichaMensaje.hidden = !mensaje;
+      fichaMensaje.textContent = mensaje;
+      const tiempo = radio.dataset.duracion || "";
+      fichaTiempo.hidden = !tiempo;
+      fichaTiempo.textContent = tiempo ? "Tiempo estimado: " + tiempo : "";
+      const dificultad = radio.dataset.dificultad || "";
+      fichaDificultad.hidden = !dificultad;
+      fichaDificultad.textContent = dificultad ? "Dificultad: " + dificultad : "";
+      fichaDificultad.className = "badge mb-3 text-bg-" + (radio.dataset.colorDificultad || "secondary");
+      avisoDesactualizado.hidden = radio.dataset.estadoActualizacion !== "desactualizado";
+
+      cargarLugares(radio.id.replace("tramite-", ""));
+    }
+
+    radios.forEach((radio) => {
+      radio.addEventListener("change", () => {
+        if (radio.checked) {
+          mostrarTramite(radio);
+        }
+      });
+    });
+
+    const botonConfirmar = document.querySelector("#btn-confirmar");
+    botonConfirmar.addEventListener("click", () => {
+      const elegido = document.querySelector(".estado-tramite:checked");
+      if (!elegido) {
+        return;
+      }
+      const id = elegido.id.replace("tramite-", "");
+      window.location.assign(botonConfirmar.dataset.guia + "/" + id);
+    });
+
+    const opcionesCategoria = document.querySelectorAll(".opcion-categoria");
+    const sinResultados = document.querySelector(".sin-resultados");
 
     campoBusqueda.addEventListener("input", () => {
       const texto = campoBusqueda.value.trim().toLocaleLowerCase("es");
+      let coincidencias = 0;
       opcionesBusqueda.forEach((opcion) => {
         const nombre = opcion.textContent.toLocaleLowerCase("es");
-        opcion.hidden = texto.length > 0 && !nombre.includes(texto);
+        const categoria = (opcion.dataset.categoria || "").toLocaleLowerCase("es");
+        const coincide = texto.length > 0 && (nombre.includes(texto) || categoria.includes(texto));
+        opcion.hidden = !coincide;
+        if (coincide) {
+          coincidencias += 1;
+        }
+      });
+      opcionesCategoria.forEach((opcion) => {
+        const nombre = (opcion.dataset.nombre || "").toLocaleLowerCase("es");
+        const coincide = texto.length > 0 && nombre.includes(texto);
+        opcion.hidden = !coincide;
+        if (coincide) {
+          coincidencias += 1;
+        }
+      });
+      sinResultados.hidden = texto.length === 0 || coincidencias > 0;
+    });
+
+    opcionesCategoria.forEach((opcion) => {
+      opcion.addEventListener("click", () => {
+        campoBusqueda.value = opcion.dataset.nombre || "";
+        campoBusqueda.dispatchEvent(new Event("input"));
+        campoBusqueda.focus();
       });
     });
+
+    const lugares = JSON.parse(document.querySelector("#datos-lugares").textContent);
+    const filtroEstado = document.querySelector("#filtro-estado");
+    const filtroMunicipio = document.querySelector("#filtro-municipio");
+    const avisoLugares = document.querySelector("#aviso-lugares");
+    const sucursalElegida = document.querySelector("#sucursal-elegida");
+    const listaSucursales = document.querySelector("#lista-sucursales");
+    const sinLugares = document.querySelector("#sin-lugares");
+    const textoSinMunicipio = sinLugares.textContent;
+    const formularioFiltros = document.querySelector(".filtros");
+    let lugaresDelTramite = [];
+
+    formularioFiltros.addEventListener("submit", (evento) => {
+      evento.preventDefault();
+    });
+
+    function limpiarSelect(select, texto) {
+      select.replaceChildren();
+      const opcion = document.createElement("option");
+      opcion.value = "";
+      opcion.textContent = texto;
+      select.append(opcion);
+    }
+
+    function valoresUnicos(lista, campo) {
+      return [...new Set(lista.map((lugar) => lugar[campo]))].sort((a, b) => a.localeCompare(b, "es"));
+    }
+
+    function ocultarResultadoLugares() {
+      listaSucursales.hidden = true;
+      listaSucursales.replaceChildren();
+      sucursalElegida.hidden = true;
+      sucursalElegida.textContent = "";
+      sinLugares.hidden = true;
+    }
+
+    function agregarDato(caja, etiqueta, valor) {
+      if (!valor) {
+        return;
+      }
+      const parrafo = document.createElement("p");
+      parrafo.className = "card-text";
+      const marca = document.createElement("span");
+      marca.className = "fw-semibold";
+      marca.textContent = etiqueta + ": ";
+      parrafo.append(marca, document.createTextNode(valor));
+      caja.append(parrafo);
+    }
+
+    function mostrarSucursales(lista) {
+      listaSucursales.replaceChildren();
+      sucursalElegida.hidden = true;
+      sucursalElegida.textContent = "";
+      if (lista.length === 0) {
+        listaSucursales.hidden = true;
+        sinLugares.textContent = textoSinMunicipio;
+        sinLugares.hidden = false;
+        return;
+      }
+      sinLugares.hidden = true;
+      lista.forEach((lugar) => {
+        const columna = document.createElement("div");
+        columna.className = "col-md-6";
+        const articulo = document.createElement("article");
+        articulo.className = "card h-100 border-danger";
+        const encabezado = document.createElement("div");
+        encabezado.className = "card-header";
+        encabezado.textContent = lugar.nombre;
+        const cuerpo = document.createElement("div");
+        cuerpo.className = "card-body";
+        agregarDato(cuerpo, "Dirección", lugar.direccion);
+        agregarDato(cuerpo, "Horario", lugar.horario);
+        agregarDato(cuerpo, "Referencia", lugar.referencia);
+        agregarDato(cuerpo, "Teléfono", lugar.telefono);
+        agregarDato(cuerpo, "Correo", lugar.correo);
+        if (lugar.enlace) {
+          const parrafo = document.createElement("p");
+          parrafo.className = "card-text";
+          const marca = document.createElement("span");
+          marca.className = "fw-semibold";
+          marca.textContent = "Enlace: ";
+          const liga = document.createElement("a");
+          liga.href = lugar.enlace;
+          liga.target = "_blank";
+          liga.rel = "noopener";
+          liga.textContent = lugar.enlace;
+          parrafo.append(marca, liga);
+          cuerpo.append(parrafo);
+        }
+        const boton = document.createElement("button");
+        boton.type = "button";
+        boton.className = "btn btn-danger";
+        boton.textContent = "Elegir este lugar";
+        boton.addEventListener("click", () => {
+          sucursalElegida.textContent = "Elegiste: " + lugar.nombre;
+          sucursalElegida.hidden = false;
+        });
+        cuerpo.append(boton);
+        articulo.append(encabezado, cuerpo);
+        columna.append(articulo);
+        listaSucursales.append(columna);
+      });
+      listaSucursales.hidden = false;
+    }
+
+    function cargarLugares(tramiteId) {
+      lugaresDelTramite = lugares.filter((lugar) => String(lugar.tramite_id) === String(tramiteId));
+      limpiarSelect(filtroEstado, "Selecciona un estado");
+      limpiarSelect(filtroMunicipio, "Selecciona un municipio");
+      filtroMunicipio.disabled = true;
+      ocultarResultadoLugares();
+      avisoLugares.hidden = true;
+      if (lugaresDelTramite.length === 0) {
+        sinLugares.textContent = "No hay lugares disponibles.";
+        sinLugares.hidden = false;
+        return;
+      }
+      valoresUnicos(lugaresDelTramite, "estado").forEach((estado) => {
+        const opcion = document.createElement("option");
+        opcion.value = estado;
+        opcion.textContent = estado;
+        filtroEstado.append(opcion);
+      });
+    }
+
+    filtroEstado.addEventListener("change", () => {
+      limpiarSelect(filtroMunicipio, "Selecciona un municipio");
+      ocultarResultadoLugares();
+      const estado = filtroEstado.value;
+      if (!estado) {
+        filtroMunicipio.disabled = true;
+        return;
+      }
+      const delEstado = lugaresDelTramite.filter((lugar) => lugar.estado === estado);
+      valoresUnicos(delEstado, "municipio").forEach((municipio) => {
+        const opcion = document.createElement("option");
+        opcion.value = municipio;
+        opcion.textContent = municipio;
+        filtroMunicipio.append(opcion);
+      });
+      filtroMunicipio.disabled = false;
+    });
+
+    filtroMunicipio.addEventListener("change", () => {
+      const estado = filtroEstado.value;
+      const municipio = filtroMunicipio.value;
+      if (!municipio) {
+        ocultarResultadoLugares();
+        return;
+      }
+      mostrarSucursales(
+        lugaresDelTramite.filter((lugar) => lugar.estado === estado && lugar.municipio === municipio)
+      );
+    });
+
   </script>
 </body>
 </html>
