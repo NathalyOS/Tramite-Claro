@@ -8,6 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='categorias.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
 </head>
 <body class="bg-light">
   <div class="estados visually-hidden">
@@ -53,9 +54,15 @@
             <a class="nav-link" href="{{ url_for('actualizar_tramite') }}">Actualizar trámite</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('quejas') }}">Quejas</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{ url_for('guia_tramite') }}">Guía de trámite</a>
           </li>
         </ul>
+        <button class="btn btn-outline-light ms-lg-2 my-2 my-lg-0" type="button" id="btn-lectura-clara" aria-pressed="false">
+          <i class="bi bi-type" aria-hidden="true"></i> Lectura clara
+        </button>
       </div>
     </div>
   </nav>
@@ -162,27 +169,13 @@
             <h2 class="h5 mb-0" id="titulo-lugares">Elige dónde asistir</h2>
           </div>
           <div class="card-body">
-            <p class="text-secondary">La dirección es la de la sucursal en ese estado y municipio.</p>
-
-            <form class="row g-3 filtros">
-              <div class="col-md-6">
-                <label class="form-label" for="filtro-estado">Estado</label>
-                <select class="form-select" id="filtro-estado">
-                  <option value="">Selecciona un estado</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label" for="filtro-municipio">Municipio</label>
-                <select class="form-select" id="filtro-municipio" disabled>
-                  <option value="">Selecciona un municipio</option>
-                </select>
-              </div>
-            </form>
+            <p class="text-secondary">La dirección es la de la oficina en Acapulco, Guerrero.</p>
+            <p id="aviso-fuera" class="alert alert-warning mt-3 mb-0" hidden>En Acapulco no hay oficina para este trámite. Estas son las oficinas del estado donde sí se hace.</p>
 
             <p id="aviso-lugares" class="alert alert-info mt-3 mb-0">Elige un trámite para ver las sucursales.</p>
             <p id="sucursal-elegida" class="sucursal-elegida alert alert-success mt-3 mb-0" hidden></p>
             <div id="lista-sucursales" class="row g-3 lista-sucursales mt-1" hidden></div>
-            <p id="sin-lugares" class="sin-lugares alert alert-danger mt-3 mb-0" hidden>No hay lugares registrados para este trámite en el municipio seleccionado.</p>
+            <p id="sin-lugares" class="sin-lugares alert alert-danger mt-3 mb-0" hidden>No hay lugares disponibles.</p>
           </div>
         </section>
       </div>
@@ -207,7 +200,7 @@
 
         <div class="modal-footer">
           <label class="btn btn-outline-danger" for="abrir-confirmacion">Cancelar</label>
-          <button class="btn btn-success" id="btn-confirmar" type="button" data-guia="{{ url_for('guia_tramite') }}">Confirmar</button>
+          <button class="btn btn-success" id="btn-confirmar" type="button" data-guia="{{ url_for('guia_tramite') }}" data-avance="{{ url_for('guardar_avance_guia', tramite_id=0) }}">Confirmar</button>
         </div>
       </div>
     </div>
@@ -216,6 +209,13 @@
   <script id="datos-lugares" type="application/json">{{ lugares|tojson }}</script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    if (!localStorage.getItem("tramiteClaroCorreo")) {
+      const avisoCorreo = document.createElement("p");
+      avisoCorreo.className = "alert alert-warning";
+      avisoCorreo.textContent = "Para guardar tu avance, regresa al inicio, oprime Comenzar y escribe tu correo.";
+      document.querySelector("header").append(avisoCorreo);
+    }
+
     const campoBusqueda = document.querySelector("#buscar");
     const opcionesBusqueda = document.querySelectorAll(".resultados .opcion");
     const radios = document.querySelectorAll(".estado-tramite");
@@ -253,7 +253,13 @@
       instruccionTexto.textContent = descripcion;
       const dificultadInstruccion = radio.dataset.dificultad || "";
       instruccionDificultad.hidden = !dificultadInstruccion;
-      instruccionDificultad.textContent = dificultadInstruccion ? "Dificultad: " + dificultadInstruccion : "";
+      instruccionDificultad.replaceChildren();
+      if (dificultadInstruccion) {
+        const icono = document.createElement("i");
+        icono.className = "bi bi-speedometer2 me-1";
+        icono.setAttribute("aria-hidden", "true");
+        instruccionDificultad.append(icono, document.createTextNode("Dificultad: " + dificultadInstruccion));
+      }
 
       const fecha = radio.dataset.fecha || "";
       fichaActualizacion.hidden = !fecha;
@@ -266,8 +272,14 @@
       fichaTiempo.textContent = tiempo ? "Tiempo estimado: " + tiempo : "";
       const dificultad = radio.dataset.dificultad || "";
       fichaDificultad.hidden = !dificultad;
-      fichaDificultad.textContent = dificultad ? "Dificultad: " + dificultad : "";
       fichaDificultad.className = "badge mb-3 text-bg-" + (radio.dataset.colorDificultad || "secondary");
+      fichaDificultad.replaceChildren();
+      if (dificultad) {
+        const icono = document.createElement("i");
+        icono.className = "bi bi-speedometer2 me-1";
+        icono.setAttribute("aria-hidden", "true");
+        fichaDificultad.append(icono, document.createTextNode("Dificultad: " + dificultad));
+      }
       avisoDesactualizado.hidden = radio.dataset.estadoActualizacion !== "desactualizado";
 
       cargarLugares(radio.id.replace("tramite-", ""));
@@ -287,8 +299,19 @@
       if (!elegido) {
         return;
       }
+      const correo = localStorage.getItem("tramiteClaroCorreo") || "";
+      if (!correo) {
+        window.location.assign("{{ url_for('home') }}");
+        return;
+      }
       const id = elegido.id.replace("tramite-", "");
-      window.location.assign(botonConfirmar.dataset.guia + "/" + id);
+      fetch(botonConfirmar.dataset.avance.replace("/0/avance", "/" + id + "/avance"), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ correo: correo, numero_paso: 1, items: [], registrar: true }),
+      }).finally(() => {
+        window.location.assign(botonConfirmar.dataset.guia + "/" + id);
+      });
     });
 
     const opcionesCategoria = document.querySelectorAll(".opcion-categoria");
@@ -326,31 +349,11 @@
     });
 
     const lugares = JSON.parse(document.querySelector("#datos-lugares").textContent);
-    const filtroEstado = document.querySelector("#filtro-estado");
-    const filtroMunicipio = document.querySelector("#filtro-municipio");
     const avisoLugares = document.querySelector("#aviso-lugares");
+    const avisoFuera = document.querySelector("#aviso-fuera");
     const sucursalElegida = document.querySelector("#sucursal-elegida");
     const listaSucursales = document.querySelector("#lista-sucursales");
     const sinLugares = document.querySelector("#sin-lugares");
-    const textoSinMunicipio = sinLugares.textContent;
-    const formularioFiltros = document.querySelector(".filtros");
-    let lugaresDelTramite = [];
-
-    formularioFiltros.addEventListener("submit", (evento) => {
-      evento.preventDefault();
-    });
-
-    function limpiarSelect(select, texto) {
-      select.replaceChildren();
-      const opcion = document.createElement("option");
-      opcion.value = "";
-      opcion.textContent = texto;
-      select.append(opcion);
-    }
-
-    function valoresUnicos(lista, campo) {
-      return [...new Set(lista.map((lugar) => lugar[campo]))].sort((a, b) => a.localeCompare(b, "es"));
-    }
 
     function ocultarResultadoLugares() {
       listaSucursales.hidden = true;
@@ -358,6 +361,7 @@
       sucursalElegida.hidden = true;
       sucursalElegida.textContent = "";
       sinLugares.hidden = true;
+      avisoFuera.hidden = true;
     }
 
     function agregarDato(caja, etiqueta, valor) {
@@ -379,7 +383,7 @@
       sucursalElegida.textContent = "";
       if (lista.length === 0) {
         listaSucursales.hidden = true;
-        sinLugares.textContent = textoSinMunicipio;
+        sinLugares.textContent = "No hay lugares disponibles.";
         sinLugares.hidden = false;
         return;
       }
@@ -413,6 +417,17 @@
           parrafo.append(marca, liga);
           cuerpo.append(parrafo);
         }
+        if (lugar.direccion) {
+          const parrafoMapa = document.createElement("p");
+          parrafoMapa.className = "card-text";
+          const ligaMapa = document.createElement("a");
+          ligaMapa.href = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(lugar.direccion);
+          ligaMapa.target = "_blank";
+          ligaMapa.rel = "noopener";
+          ligaMapa.textContent = "Cómo llegar";
+          parrafoMapa.append(ligaMapa);
+          cuerpo.append(parrafoMapa);
+        }
         const boton = document.createElement("button");
         boton.type = "button";
         boton.className = "btn btn-danger";
@@ -430,55 +445,17 @@
     }
 
     function cargarLugares(tramiteId) {
-      lugaresDelTramite = lugares.filter((lugar) => String(lugar.tramite_id) === String(tramiteId));
-      limpiarSelect(filtroEstado, "Selecciona un estado");
-      limpiarSelect(filtroMunicipio, "Selecciona un municipio");
-      filtroMunicipio.disabled = true;
+      const delTramite = lugares.filter((lugar) => String(lugar.tramite_id) === String(tramiteId));
+      const deAcapulco = delTramite.filter((lugar) =>
+        lugar.estado === "Guerrero" && lugar.municipio === "Acapulco de Juárez"
+      );
       ocultarResultadoLugares();
       avisoLugares.hidden = true;
-      if (lugaresDelTramite.length === 0) {
-        sinLugares.textContent = "No hay lugares disponibles.";
-        sinLugares.hidden = false;
-        return;
-      }
-      valoresUnicos(lugaresDelTramite, "estado").forEach((estado) => {
-        const opcion = document.createElement("option");
-        opcion.value = estado;
-        opcion.textContent = estado;
-        filtroEstado.append(opcion);
-      });
+      avisoFuera.hidden = deAcapulco.length > 0 || delTramite.length === 0;
+      mostrarSucursales(deAcapulco.length > 0 ? deAcapulco : delTramite);
     }
 
-    filtroEstado.addEventListener("change", () => {
-      limpiarSelect(filtroMunicipio, "Selecciona un municipio");
-      ocultarResultadoLugares();
-      const estado = filtroEstado.value;
-      if (!estado) {
-        filtroMunicipio.disabled = true;
-        return;
-      }
-      const delEstado = lugaresDelTramite.filter((lugar) => lugar.estado === estado);
-      valoresUnicos(delEstado, "municipio").forEach((municipio) => {
-        const opcion = document.createElement("option");
-        opcion.value = municipio;
-        opcion.textContent = municipio;
-        filtroMunicipio.append(opcion);
-      });
-      filtroMunicipio.disabled = false;
-    });
-
-    filtroMunicipio.addEventListener("change", () => {
-      const estado = filtroEstado.value;
-      const municipio = filtroMunicipio.value;
-      if (!municipio) {
-        ocultarResultadoLugares();
-        return;
-      }
-      mostrarSucursales(
-        lugaresDelTramite.filter((lugar) => lugar.estado === estado && lugar.municipio === municipio)
-      );
-    });
-
   </script>
+  <script src="{{ url_for('static', filename='lectura-clara.js') }}"></script>
 </body>
 </html>

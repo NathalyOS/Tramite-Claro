@@ -31,9 +31,15 @@
             <a class="nav-link" href="{{ url_for('actualizar_tramite') }}">Actualizar trámite</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('quejas') }}">Quejas</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{ url_for('guia_tramite') }}">Guía de trámite</a>
           </li>
         </ul>
+        <button class="btn btn-outline-light ms-lg-2 my-2 my-lg-0" type="button" id="btn-lectura-clara" aria-pressed="false">
+          <i class="bi bi-type" aria-hidden="true"></i> Lectura clara
+        </button>
       </div>
     </div>
   </nav>
@@ -117,5 +123,6 @@
       });
     });
   </script>
+  <script src="{{ url_for('static', filename='lectura-clara.js') }}"></script>
 </body>
 </html>

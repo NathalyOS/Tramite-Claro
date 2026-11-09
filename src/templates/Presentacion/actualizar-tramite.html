@@ -31,9 +31,15 @@
             <a class="nav-link active" href="{{ url_for('actualizar_tramite') }}">Actualizar trámite</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('quejas') }}">Quejas</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{ url_for('guia_tramite') }}">Guía de trámite</a>
           </li>
         </ul>
+        <button class="btn btn-outline-light ms-lg-2 my-2 my-lg-0" type="button" id="btn-lectura-clara" aria-pressed="false">
+          <i class="bi bi-type" aria-hidden="true"></i> Lectura clara
+        </button>
       </div>
     </div>
   </nav>
@@ -100,11 +106,34 @@
                 <input class="form-control" type="text" id="tiempo-tramite" maxlength="100" placeholder="Como lo publica la página oficial">
               </div>
 
+              <!---5.2 AUTORIZAR Y RECHAZAR-->
               <div class="d-flex flex-wrap gap-2">
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="submit" class="btn btn-success">Ver vista previa</button>
                 <a class="btn btn-outline-danger" href="{{ url_for('home') }}">Cancelar</a>
               </div>
             </form>
+
+            <div id="vista-previa" class="mt-4" hidden>
+              <h2 class="h5 text-success mb-3">Vista previa del cambio</h2>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="card h-100 border-secondary">
+                    <div class="card-header">Así está publicado ahora</div>
+                    <div class="card-body" id="previa-actual"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card h-100 border-success">
+                    <div class="card-header bg-success text-white">Así quedaría</div>
+                    <div class="card-body" id="previa-nueva"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap gap-2 mt-3">
+                <button type="button" class="btn btn-success" id="btn-autorizar">Autorizar</button>
+                <button type="button" class="btn btn-outline-danger" id="btn-rechazar">Rechazar</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -123,11 +152,73 @@
     const fecha = document.querySelector("#fecha-actualizacion");
     const dificultad = document.querySelector("#dificultad-tramite");
     const tiempo = document.querySelector("#tiempo-tramite");
+    const vistaPrevia = document.querySelector("#vista-previa");
+    const previaActual = document.querySelector("#previa-actual");
+    const previaNueva = document.querySelector("#previa-nueva");
+    const botonAutorizar = document.querySelector("#btn-autorizar");
+    const botonRechazar = document.querySelector("#btn-rechazar");
+    const textosEstado = {
+      "": "Sin marca",
+      actualizado: "Actualizado",
+      desactualizado: "Desactualizado",
+    };
+    const textosDificultad = {
+      "": "Sin dato publicado",
+      baja: "Baja",
+      media: "Media",
+      alta: "Alta",
+    };
 
     function mostrarAviso(esError, texto) {
       aviso.hidden = false;
       aviso.className = esError ? "alert alert-danger mb-3" : "alert alert-success mb-3";
       aviso.textContent = texto;
+    }
+
+    function textoFecha(valor) {
+      if (!valor) {
+        return "Sin fecha";
+      }
+      const partes = valor.split("-");
+      if (partes.length !== 3) {
+        return valor;
+      }
+      const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+      const mes = meses[Number(partes[1]) - 1];
+      if (!mes) {
+        return valor;
+      }
+      return Number(partes[2]) + " de " + mes + " de " + partes[0];
+    }
+
+    function pintarComparacion(caja, datos) {
+      caja.replaceChildren();
+      const filas = [
+        ["Estado de la guía", textosEstado[datos.estado] || "Sin marca"],
+        ["Mensaje del cambio", datos.mensaje || "Sin mensaje"],
+        ["Fecha de última actualización", textoFecha(datos.fecha)],
+        ["Dificultad", textosDificultad[datos.dificultad] || "Sin dato publicado"],
+        ["Tiempo estimado", datos.duracion || "Sin tiempo"],
+      ];
+      filas.forEach((fila) => {
+        const parrafo = document.createElement("p");
+        parrafo.className = "mb-2";
+        const marca = document.createElement("span");
+        marca.className = "fw-semibold";
+        marca.textContent = fila[0] + ": ";
+        parrafo.append(marca, document.createTextNode(fila[1]));
+        caja.append(parrafo);
+      });
+    }
+
+    function propuesta() {
+      return {
+        estado: estado.value,
+        mensaje: mensaje.value.trim(),
+        fecha: fecha.value,
+        dificultad: dificultad.value,
+        duracion: tiempo.value.trim(),
+      };
     }
 
     selector.addEventListener("change", () => {
@@ -138,6 +229,7 @@
         fecha.value = "";
         dificultad.value = "";
         tiempo.value = "";
+        vistaPrevia.hidden = true;
         return;
       }
       estado.value = tramite.estado_actualizacion || "";
@@ -145,24 +237,61 @@
       fecha.value = tramite.fecha_iso || "";
       dificultad.value = tramite.dificultad || "";
       tiempo.value = tramite.duracion_estimada || "";
+      vistaPrevia.hidden = true;
     });
 
     formulario.addEventListener("submit", (evento) => {
       evento.preventDefault();
       if (!selector.value) {
+        vistaPrevia.hidden = true;
         mostrarAviso(true, "Elige un trámite.");
         return;
       }
+      if (mensaje.value.trim().length > 500) {
+        vistaPrevia.hidden = true;
+        mostrarAviso(true, "El mensaje es demasiado largo.");
+        return;
+      }
+      if (tiempo.value.trim().length > 100) {
+        vistaPrevia.hidden = true;
+        mostrarAviso(true, "El tiempo estimado es demasiado largo.");
+        return;
+      }
+      const tramite = tramites.find((item) => String(item.id) === selector.value);
+      const publicado = tramite || {};
+      pintarComparacion(previaActual, {
+        estado: publicado.estado_actualizacion || "",
+        mensaje: publicado.mensaje_cambio || "",
+        fecha: publicado.fecha_iso || "",
+        dificultad: publicado.dificultad || "",
+        duracion: publicado.duracion_estimada || "",
+      });
+      pintarComparacion(previaNueva, propuesta());
+      aviso.hidden = true;
+      vistaPrevia.hidden = false;
+    });
+
+    botonRechazar.addEventListener("click", () => {
+      vistaPrevia.hidden = true;
+      mostrarAviso(true, "Cambio rechazado. La guía sigue igual.");
+    });
+
+    botonAutorizar.addEventListener("click", () => {
+      if (!selector.value) {
+        mostrarAviso(true, "Elige un trámite.");
+        return;
+      }
+      const cambio = propuesta();
       fetch(window.location.pathname, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           tramite_id: selector.value,
-          estado: estado.value,
-          mensaje: mensaje.value.trim(),
-          fecha: fecha.value,
-          dificultad: dificultad.value,
-          duracion: tiempo.value.trim(),
+          estado: cambio.estado,
+          mensaje: cambio.mensaje,
+          fecha: cambio.fecha,
+          dificultad: cambio.dificultad,
+          duracion: cambio.duracion,
         }),
       }).then(async (respuesta) => {
         const datos = await respuesta.json();
@@ -172,15 +301,17 @@
         }
         const tramite = tramites.find((item) => String(item.id) === selector.value);
         if (tramite) {
-          tramite.estado_actualizacion = estado.value;
-          tramite.mensaje_cambio = mensaje.value.trim();
-          tramite.fecha_iso = fecha.value;
-          tramite.dificultad = dificultad.value;
-          tramite.duracion_estimada = tiempo.value.trim();
+          tramite.estado_actualizacion = cambio.estado;
+          tramite.mensaje_cambio = cambio.mensaje;
+          tramite.fecha_iso = cambio.fecha;
+          tramite.dificultad = cambio.dificultad;
+          tramite.duracion_estimada = cambio.duracion;
         }
-        mostrarAviso(false, "Cambios guardados. Ya se ven en el trámite y en su guía.");
+        vistaPrevia.hidden = true;
+        mostrarAviso(false, "Cambio autorizado. Ya se ve en el trámite y en su guía.");
       });
     });
   </script>
+  <script src="{{ url_for('static', filename='lectura-clara.js') }}"></script>
 </body>
 </html>

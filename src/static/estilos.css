@@ -6,3 +6,100 @@ body {
 .logo {
   max-width: 220px;
 }
+
+/* El tamaño elegido con A− y A+ escala toda la letra, también en el celular. */
+html {
+  font-size: var(--tamano-letra, 16px);
+}
+
+html:has(body.lectura-clara) {
+  font-size: var(--tamano-letra, 18px);
+}
+
+/* 6.1 Lectura clara: solo aplica cuando la persona oprime el botón. */
+body.lectura-clara {
+  background: #121212 !important;
+  color: #f5f5f5 !important;
+}
+
+body.lectura-clara .text-secondary,
+body.lectura-clara .text-primary,
+body.lectura-clara .text-warning-emphasis,
+body.lectura-clara .text-dark,
+body.lectura-clara .text-body,
+body.lectura-clara .card-text,
+body.lectura-clara .form-check-label,
+body.lectura-clara legend,
+body.lectura-clara label,
+body.lectura-clara h1,
+body.lectura-clara h2,
+body.lectura-clara h3,
+body.lectura-clara p,
+body.lectura-clara li {
+  color: #f5f5f5 !important;
+}
+
+body.lectura-clara .card,
+body.lectura-clara .card-body,
+body.lectura-clara .list-group-item,
+body.lectura-clara .modal-content,
+body.lectura-clara .form-control,
+body.lectura-clara .form-select,
+body.lectura-clara .input-group-text,
+body.lectura-clara .opcion.activa {
+  background: #1c1c1c !important;
+  color: #f5f5f5 !important;
+  border-color: #f5f5f5 !important;
+}
+
+body.lectura-clara .form-control::placeholder {
+  color: #c8c8c8 !important;
+}
+
+body.lectura-clara .form-check-input {
+  background-color: #1c1c1c !important;
+  border-color: #f5f5f5 !important;
+}
+
+body.lectura-clara .form-check-input:checked {
+  background-color: #0d6efd !important;
+  border-color: #0d6efd !important;
+}
+
+body.lectura-clara .alert {
+  background: #1c1c1c !important;
+  color: #f5f5f5 !important;
+  border: 3px solid #f5f5f5 !important;
+}
+
+body.lectura-clara .progress {
+  background: #333 !important;
+}
+
+body.lectura-clara a:not(.btn):not(.navbar-brand):not(.nav-link) {
+  color: #fff !important;
+  text-decoration: underline;
+}
+
+body.lectura-clara .card-header:not(.text-white) {
+  color: #111 !important;
+}
+
+body.lectura-clara .navbar {
+  background: #000 !important;
+}
+
+body.lectura-clara .navbar .nav-link,
+body.lectura-clara .navbar-brand,
+body.lectura-clara .btn-outline-light,
+body.lectura-clara .btn-outline-secondary,
+body.lectura-clara .btn-outline-dark,
+body.lectura-clara .btn-outline-success {
+  color: #fff !important;
+  border-color: #fff;
+}
+
+body.lectura-clara .btn,
+body.lectura-clara .badge {
+  border-width: 2px;
+}
