@@ -6,9 +6,6 @@ import re
 
 from flask import Flask, jsonify, render_template, request, redirect, url_for
 
-from tkinter import *
-from tkinter import messagebox as MessageBox
-
 from conexion import obtener_conexion, cerrar_conexion
 
 MESES = (

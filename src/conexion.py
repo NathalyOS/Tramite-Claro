@@ -5,17 +5,20 @@ import os
 def obtener_conexion():
  
     try:
-        # Configuración de la conexión
-        # IMPORTANTE: Actualiza estos valores según tu configuración local
-        conexion = mysql.connector.connect(
-            host=os.getenv('DB_HOST', 'localhost'),
-            port=int(os.getenv('DB_PORT', 3306)),
-            user=os.getenv('DB_USER', 'root'),
-            password=os.getenv('DB_PASSWORD', '12345678'),
-            database=os.getenv('DB_NAME', 'tramite_claro'),
-            charset='utf8mb4',
-            collation='utf8mb4_0900_ai_ci'
-        )
+        # En la computadora, si no hay variables, entra a la base local.
+        # En Render esas variables apuntan al MySQL de la nube.
+        datos = {
+            'host': os.getenv('DB_HOST', 'localhost'),
+            'port': int(os.getenv('DB_PORT', 3306)),
+            'user': os.getenv('DB_USER', 'root'),
+            'password': os.getenv('DB_PASSWORD', '12345678'),
+            'database': os.getenv('DB_NAME', 'tramite_claro'),
+            'charset': 'utf8mb4',
+        }
+        if os.getenv('DB_SSL', '').strip().lower() in ('1', 'true', 'si', 'yes'):
+            datos['ssl_disabled'] = False
+            datos['ssl_verify_cert'] = False
+        conexion = mysql.connector.connect(**datos)
         
         if conexion.is_connected():
             print("✓ Conexión exitosa a la base de datos MySQL")
