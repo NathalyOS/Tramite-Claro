@@ -643,7 +643,9 @@
           avisarAvance(true, datos.error || "No se pudo crear el código.");
           return;
         }
-        codigoGuia.textContent = "Tu código es " + datos.codigo + ".";
+        codigoGuia.textContent = datos.codigo
+          ? "Tu código es " + datos.codigo + "."
+          : "Te enviamos un código de 6 números a tu correo. Revisa también el correo no deseado.";
         formCodigoGuia.hidden = false;
         campoCodigoGuia.value = "";
         avisarAvance(false, "Escribe el código para confirmar que el correo es tuyo.");

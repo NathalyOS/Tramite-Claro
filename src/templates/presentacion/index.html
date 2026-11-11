@@ -138,7 +138,9 @@
           avisarInicio(true, datos.error || "No se pudo crear el código.");
           return;
         }
-        codigoVisible.textContent = "Tu código es " + datos.codigo + ".";
+        codigoVisible.textContent = datos.codigo
+          ? "Tu código es " + datos.codigo + "."
+          : "Te enviamos un código de 6 números a tu correo. Revisa también el correo no deseado.";
         formCodigo.hidden = false;
         campoCodigo.value = "";
         campoCodigo.focus();

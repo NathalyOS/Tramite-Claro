@@ -3,6 +3,8 @@ import json
 import os
 import random
 import re
+import urllib.error
+import urllib.request
 
 from flask import Flask, jsonify, render_template, request, redirect, url_for
 
@@ -730,6 +732,51 @@ def texto_vencimiento(fecha_limite):
     return ""
 
 
+def enviar_codigo_correo(correo, codigo):
+    clave = os.getenv("BREVO_API_KEY", "").strip()
+    desde = os.getenv("CORREO_DESDE", "").strip()
+    if not clave or not desde:
+        return "local"
+    nombre = "Trámite Claro"
+    email_desde = desde
+    coincidencia = re.fullmatch(r"(.*?)<([^>]+)>", desde)
+    if coincidencia:
+        nombre = coincidencia.group(1).strip() or nombre
+        email_desde = coincidencia.group(2).strip()
+    cuerpo = {
+        "sender": {"name": nombre, "email": email_desde},
+        "to": [{"email": correo}],
+        "subject": "Tu código de Trámite Claro",
+        "textContent": (
+            f"Tu código es {codigo}.\n\n"
+            "Escríbelo en Trámite Claro para confirmar tu correo y guardar tu avance.\n"
+            "Si no pediste este código, ignora este mensaje."
+        ),
+    }
+    peticion = urllib.request.Request(
+        "https://api.brevo.com/v3/smtp/email",
+        data=json.dumps(cuerpo, ensure_ascii=False).encode("utf-8"),
+        headers={
+            "accept": "application/json",
+            "content-type": "application/json",
+            "api-key": clave,
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(peticion, timeout=15) as respuesta:
+            if respuesta.status >= 400:
+                return None
+    except urllib.error.HTTPError as error:
+        detalle = error.read().decode("utf-8", "replace")
+        print(f"✗ Error al enviar el código: {error.code} {detalle}")
+        return None
+    except Exception as error:
+        print(f"✗ Error al enviar el código: {error}")
+        return None
+    return "enviado"
+
+
 def pedir_codigo_correo(correo):
     correo = correo_limpio(correo)
     if not correo:
@@ -760,7 +807,12 @@ def pedir_codigo_correo(correo):
         if cursor:
             cursor.close()
         cerrar_conexion(conexion)
-    return {"codigo": codigo, "correo": correo}, None
+    envio = enviar_codigo_correo(correo, codigo)
+    if envio is None:
+        return None, "No se pudo enviar el código. Intenta de nuevo."
+    if envio == "local":
+        return {"codigo": codigo, "correo": correo}, None
+    return {"correo": correo, "enviado": True}, None
 
 
 def listar_avances_correo(cursor, correo):
