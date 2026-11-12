@@ -281,7 +281,7 @@ def asegurar_tabla_quejas():
                 estado ENUM('pendiente', 'atendida') NOT NULL DEFAULT 'pendiente',
                 respuesta TEXT NULL,
                 fecha_creacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                fecha_respuesta DATETIME NULL,
+                fecha_respuesta TIMESTAMP NULL,
                 PRIMARY KEY (id)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
             """

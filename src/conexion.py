@@ -80,6 +80,7 @@ def adaptar_postgres(sql):
         flags=re.IGNORECASE,
     )
     sql = re.sub(r"TINYINT\(\d+\)", "SMALLINT", sql, flags=re.IGNORECASE)
+    sql = re.sub(r"\bDATETIME\b", "TIMESTAMP", sql, flags=re.IGNORECASE)
     sql = re.sub(r"ENUM\([^)]*\)", "VARCHAR(50)", sql, flags=re.IGNORECASE)
     sql = re.sub(r"\s+ON\s+UPDATE\s+CURRENT_TIMESTAMP", "", sql, flags=re.IGNORECASE)
     sql = re.sub(
