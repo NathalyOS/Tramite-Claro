@@ -1,4 +1,5 @@
 from datetime import date, datetime
+import base64
 import json
 import os
 import random
@@ -732,8 +733,21 @@ def texto_vencimiento(fecha_limite):
     return ""
 
 
-def enviar_codigo_correo(correo, codigo):
+def clave_brevo():
     clave = os.getenv("BREVO_API_KEY", "").strip()
+    if clave.startswith("xkeysib-") or not clave:
+        return clave
+    try:
+        datos = json.loads(base64.b64decode(clave).decode("utf-8"))
+        if isinstance(datos, dict) and str(datos.get("api_key", "")).startswith("xkeysib-"):
+            return datos["api_key"]
+    except Exception:
+        pass
+    return clave
+
+
+def enviar_codigo_correo(correo, codigo):
+    clave = clave_brevo()
     desde = os.getenv("CORREO_DESDE", "").strip()
     if not clave or not desde:
         return "local"
