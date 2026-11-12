@@ -72,6 +72,7 @@
             <div class="text-start mt-4" id="inicio-correo" hidden
               data-codigo="{{ url_for('correo_codigo') }}"
               data-confirmar="{{ url_for('correo_confirmar') }}"
+              data-avisar="{{ url_for('correo_avisar_recordatorios') }}"
               data-tramites="{{ url_for('categorias') }}"
               data-guia="{{ url_for('guia_tramite') }}">
               <h2 class="h5">Escribe tu correo para guardar tu avance</h2>
@@ -190,6 +191,15 @@
         listo.append(elegir);
       });
     });
+
+    const correoInicio = localStorage.getItem("tramiteClaroCorreo") || "";
+    if (correoInicio && correoValido.test(correoInicio)) {
+      fetch(panel.dataset.avisar, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ correo: correoInicio }),
+      });
+    }
   </script>
 </body>
 </html>

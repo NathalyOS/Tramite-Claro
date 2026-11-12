@@ -689,10 +689,21 @@ def asegurar_tablas_correo():
                 tramite_id INT UNSIGNED NOT NULL,
                 descripcion VARCHAR(200) NOT NULL,
                 fecha_limite DATE NOT NULL,
+                aviso_enviado SMALLINT NOT NULL DEFAULT 0,
                 PRIMARY KEY (id)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
             """
         )
+        cursor.execute(
+            """
+            SELECT COUNT(*) FROM information_schema.columns
+            WHERE table_name = 'recordatorios' AND column_name = 'aviso_enviado'
+            """
+        )
+        if not cursor.fetchone()[0]:
+            cursor.execute(
+                "ALTER TABLE recordatorios ADD COLUMN aviso_enviado SMALLINT NOT NULL DEFAULT 0"
+            )
         conexion.commit()
     except Exception as error:
         print(f"✗ Error al preparar el avance por correo: {error}")
@@ -716,11 +727,16 @@ def correo_esta_verificado(cursor, correo):
     return bool(valor)
 
 
-def texto_vencimiento(fecha_limite):
+def dia_de_fecha(fecha_limite):
     if hasattr(fecha_limite, "year") and not hasattr(fecha_limite, "hour"):
-        dia = fecha_limite
-    else:
-        dia = datetime.strptime(str(fecha_limite)[:10], "%Y-%m-%d").date()
+        return fecha_limite
+    if hasattr(fecha_limite, "date") and hasattr(fecha_limite, "hour"):
+        return fecha_limite.date()
+    return datetime.strptime(str(fecha_limite)[:10], "%Y-%m-%d").date()
+
+
+def texto_vencimiento(fecha_limite):
+    dia = dia_de_fecha(fecha_limite)
     dias = (dia - date.today()).days
     if dias < 0:
         return ""
@@ -746,7 +762,7 @@ def clave_brevo():
     return clave
 
 
-def enviar_codigo_correo(correo, codigo):
+def enviar_mensaje_brevo(correo, asunto, texto):
     clave = clave_brevo()
     desde = os.getenv("CORREO_DESDE", "").strip()
     if not clave or not desde:
@@ -760,12 +776,8 @@ def enviar_codigo_correo(correo, codigo):
     cuerpo = {
         "sender": {"name": nombre, "email": email_desde},
         "to": [{"email": correo}],
-        "subject": "Tu código de Trámite Claro",
-        "textContent": (
-            f"Tu código es {codigo}.\n\n"
-            "Escríbelo en Trámite Claro para confirmar tu correo y guardar tu avance.\n"
-            "Si no pediste este código, ignora este mensaje."
-        ),
+        "subject": asunto,
+        "textContent": texto,
     }
     peticion = urllib.request.Request(
         "https://api.brevo.com/v3/smtp/email",
@@ -783,12 +795,24 @@ def enviar_codigo_correo(correo, codigo):
                 return None
     except urllib.error.HTTPError as error:
         detalle = error.read().decode("utf-8", "replace")
-        print(f"✗ Error al enviar el código: {error.code} {detalle}")
+        print(f"✗ Error al enviar el correo: {error.code} {detalle}")
         return None
     except Exception as error:
-        print(f"✗ Error al enviar el código: {error}")
+        print(f"✗ Error al enviar el correo: {error}")
         return None
     return "enviado"
+
+
+def enviar_codigo_correo(correo, codigo):
+    return enviar_mensaje_brevo(
+        correo,
+        "Tu código de Trámite Claro",
+        (
+            f"Tu código es {codigo}.\n\n"
+            "Escríbelo en Trámite Claro para confirmar tu correo y guardar tu avance.\n"
+            "Si no pediste este código, ignora este mensaje."
+        ),
+    )
 
 
 def pedir_codigo_correo(correo):
@@ -886,6 +910,64 @@ def listar_recordatorios_correo(cursor, correo, tramite_id=None):
     return lista
 
 
+def fecha_en_palabras(fecha_limite):
+    dia = dia_de_fecha(fecha_limite)
+    return f"{dia.day} de {MESES[dia.month - 1]} de {dia.year}"
+
+
+def avisar_recordatorios_pendientes(correo):
+    correo = correo_limpio(correo)
+    if not correo or not asegurar_tablas_correo():
+        return
+    conexion = obtener_conexion()
+    if not conexion:
+        return
+    cursor = None
+    try:
+        cursor = conexion.cursor(dictionary=True)
+        if not correo_esta_verificado(cursor, correo):
+            return
+        cursor.execute(
+            """
+            SELECT r.id, r.descripcion, r.fecha_limite, t.nombre
+            FROM recordatorios r
+            INNER JOIN tramites t ON t.id = r.tramite_id
+            WHERE r.correo = %s AND r.aviso_enviado = 0
+            ORDER BY r.fecha_limite, r.id
+            """,
+            (correo,),
+        )
+        pendientes = cursor.fetchall()
+        for fila in pendientes:
+            aviso = texto_vencimiento(fila["fecha_limite"])
+            if not aviso:
+                continue
+            envio = enviar_mensaje_brevo(
+                correo,
+                "Recordatorio de Trámite Claro",
+                (
+                    f"Tu trámite {fila['nombre']}.\n"
+                    f"{fila['descripcion']}\n"
+                    f"Fecha límite: {fecha_en_palabras(fila['fecha_limite'])}.\n"
+                    f"{aviso}"
+                ),
+            )
+            if envio != "enviado":
+                continue
+            cursor.execute(
+                "UPDATE recordatorios SET aviso_enviado = 1 WHERE id = %s AND correo = %s",
+                (fila["id"], correo),
+            )
+            conexion.commit()
+    except Exception as error:
+        print(f"✗ Error al avisar recordatorios: {error}")
+        conexion.rollback()
+    finally:
+        if cursor:
+            cursor.close()
+        cerrar_conexion(conexion)
+
+
 def confirmar_codigo_correo(correo, codigo):
     correo = correo_limpio(correo)
     codigo = (codigo or "").strip()
@@ -923,6 +1005,7 @@ def confirmar_codigo_correo(correo, codigo):
         if cursor:
             cursor.close()
         cerrar_conexion(conexion)
+    avisar_recordatorios_pendientes(correo)
     ultimo = avances[0]["tramite_id"] if avances else None
     return {
         "correo": correo,
@@ -958,6 +1041,7 @@ def leer_avance_correo(correo, tramite_id):
         if cursor:
             cursor.close()
         cerrar_conexion(conexion)
+    avisar_recordatorios_pendientes(correo)
     return {
         "avance": avances[0] if avances else None,
         "recordatorios": recordatorios,
@@ -1061,19 +1145,34 @@ def guardar_recordatorio(tramite_id, correo, descripcion, fecha, recordatorio_id
             return None, "Confirma tu correo para guardar el recordatorio."
         if recordatorio_id:
             cursor.execute(
-                "SELECT id FROM recordatorios WHERE id = %s AND correo = %s AND tramite_id = %s",
-                (recordatorio_id, correo, tramite_id),
-            )
-            if not cursor.fetchone():
-                return None, "No se encontró el recordatorio."
-            cursor.execute(
                 """
-                UPDATE recordatorios
-                SET descripcion = %s, fecha_limite = %s
+                SELECT fecha_limite FROM recordatorios
                 WHERE id = %s AND correo = %s AND tramite_id = %s
                 """,
-                (descripcion, dia, recordatorio_id, correo, tramite_id),
+                (recordatorio_id, correo, tramite_id),
             )
+            anterior = cursor.fetchone()
+            if not anterior:
+                return None, "No se encontró el recordatorio."
+            cambio_fecha = dia_de_fecha(anterior["fecha_limite"]) != dia
+            if cambio_fecha:
+                cursor.execute(
+                    """
+                    UPDATE recordatorios
+                    SET descripcion = %s, fecha_limite = %s, aviso_enviado = 0
+                    WHERE id = %s AND correo = %s AND tramite_id = %s
+                    """,
+                    (descripcion, dia, recordatorio_id, correo, tramite_id),
+                )
+            else:
+                cursor.execute(
+                    """
+                    UPDATE recordatorios
+                    SET descripcion = %s, fecha_limite = %s
+                    WHERE id = %s AND correo = %s AND tramite_id = %s
+                    """,
+                    (descripcion, dia, recordatorio_id, correo, tramite_id),
+                )
         else:
             cursor.execute(
                 """
@@ -1092,6 +1191,7 @@ def guardar_recordatorio(tramite_id, correo, descripcion, fecha, recordatorio_id
         if cursor:
             cursor.close()
         cerrar_conexion(conexion)
+    avisar_recordatorios_pendientes(correo)
     return {"recordatorios": recordatorios, "mensaje": "Recordatorio guardado."}, None
 
 
@@ -1256,6 +1356,13 @@ def correo_confirmar():
     if error:
         return jsonify({"error": error}), 400
     return jsonify(resultado)
+
+
+@app.route('/correo/recordatorios/avisar', methods=['POST'])
+def correo_avisar_recordatorios():
+    datos = request.get_json(silent=True) or {}
+    avisar_recordatorios_pendientes(datos.get("correo"))
+    return jsonify({"ok": True})
 
 
 @app.route('/correo/avance', methods=['POST'])
